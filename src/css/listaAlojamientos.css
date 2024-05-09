@@ -1,6 +1,6 @@
 @import "style.css";
 @import "buscador.css";
-* {
+head {
     padding: 0;
     margin: 0;
 }

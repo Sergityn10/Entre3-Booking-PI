@@ -1,6 +1,25 @@
-import "./../App"
-function  fetchReviews () {
-     fetch("https://localhost:8443/Booking_entrega2/rest/reviews")
-      .then((response) => response.json())
-      .then(data => setReviews(data))
+import axios from 'axios';
+const API_URL = "https://localhost:8443/Booking_entrega2/rest/"
+const reviewService = {
+      getAllReviews: async ()=>{
+            const response = await axios.get(`${API_URL}reviews`);
+            return response.data;
+      },
+      getReviewById: async (idr)=>{
+            const response = await axios.get(`${API_URL}reviews/${idr}`);
+            return response.data;
+      },
+      createReview: async (review)=>{
+            const response = await axios.post(`${API_URL}reviews`, review);
+            return response;
+      },
+      updateReview: async (review)=>{
+            const response = await axios.put(`${API_URL}reviews`, review);
+            return response;
+      },
+      deleteReview: async (idr)=>{
+            const response = await axios.delete(`${API_URL}reviews/${idr}`);
+            return response;
+      }
 }
+export default reviewService

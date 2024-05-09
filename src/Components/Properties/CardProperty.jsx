@@ -1,3 +1,4 @@
+
 export function CardProperty({alojamiento}){
 
     return (
@@ -11,8 +12,8 @@ export function CardProperty({alojamiento}){
                             <div id="titulo-localizacion">
                                 <a>                            
                                
-                            	<h2>${alojamiento.name}</h2></a>
-                                <span id="valoracion">${alojamiento.gradesAverage}</span>
+                            	<h2>{alojamiento.name}</h2></a>
+                                <span id="valoracion">{alojamiento.gradesAverage}</span>
                             </div>
                           
 
@@ -27,7 +28,7 @@ export function CardProperty({alojamiento}){
                                 <div id="segunda-izq">
                                     <a href=""><span>Ver en el mapa</span></a>
                                     
-                                    <span>${alojamiento.centerDistance} km del centro</span>
+                                    <span>{alojamiento.centerDistance} km del centro</span>
                                 </div>
                                 <div id="segunda-dcha">
                                 
