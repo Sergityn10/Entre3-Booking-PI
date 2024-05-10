@@ -10,21 +10,23 @@ import { pagBusqueda } from "./Views/search.jsx";
 import Index from "./Views/index.jsx";
 import { LogIn } from "./Views/login.jsx";
 import { SignUp } from "./Views/signup.jsx";
-export default function App(){
-const [reviews,setReviews] = useState([]);
-const [isLoggedIn,setIsLoggedIn] =useState(false);
 
- const fetchReviews = ()=>{
-    fetch("https://localhost:8443/Booking_entrega2/rest/reviews")
-      .then((response) => response.json())
-      .then(data => setReviews(data))
- }    
-   const funLogIn = ()=>{
-        isLoggedIn? setIsLoggedIn(false) : setIsLoggedIn(true);
+export default function App(){
+
+    const [reviews,setReviews] = useState([]);
+    const [isLoggedIn,setIsLoggedIn] =useState(false);
+
+    const fetchReviews = ()=>{
+        fetch("https://localhost:8443/Booking_entrega2/rest/reviews")
+        .then((response) => response.json())
+        .then(data => setReviews(data))
+    }    
+
+    const funLogIn = ()=>{
+            isLoggedIn? setIsLoggedIn(false) : setIsLoggedIn(true);
     }
-useEffect(() => {
-        fetchReviews();
-    }, []);
+    
+    useEffect(() => {fetchReviews();}, []);
     
     return (
         <>
@@ -33,8 +35,10 @@ useEffect(() => {
                 <Routes>
                     <Route path="/" element={<Index/>} />
                     <Route path="/search" element={<pagBusqueda/>} />
-                     <Route path="/login" element={<LogIn Click= {funLogIn}/>} /> 
-                     <Route path="/signup" element={<SignUp/>} /> 
+                    <Route path="/login" element={<LogIn Click= {funLogIn}/>} /> 
+                    <Route path="/signup" element={<SignUp/>} /> 
+
+                    <Route path ="/config" element={<Configuracion/>} />
 
                 </Routes>
            </BrowserRouter>
