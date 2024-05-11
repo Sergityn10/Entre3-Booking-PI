@@ -12,19 +12,19 @@ export function Configuracion(){
                 <section class="card-perfil">
                     <h2>Información del perfil</h2>
                     <p>Actualiza tus datos personales.</p>
-                    <a href="EditUserServlet.do">Editar perfil</a>
+                    <a href="">Editar perfil</a>
                 </section>
                 
                 <section class="card-perfil">
                     <h2>Tus alojamientos favoritos</h2>
                     <p>Revisa todos tus alojamientos favoritos</p>
-                    <a href="${pageContext.request.contextPath}/favorites/ListFavoritesPropertiesByUsersServlet.do">Ver mis alojamientos favoritos</a>
+                    <a href="">Ver mis alojamientos favoritos</a>
                 </section>
                 
                 <section class="card-perfil">
                     <h2>Mis propiedades registradas</h2>
                     <p>Gestiona, actualiza y revisa toda la información acerca de tus apartamentos favoritos</p>
-                    <a href="${pageContext.request.contextPath}/properties/ListPropertiesServlet.do">Gestionar mis alojamientos</a>
+                    <a href="">Gestionar mis alojamientos</a>
                 </section>
                 
                 <section class="card-perfil">
@@ -37,11 +37,10 @@ export function Configuracion(){
                 <section class="card-perfil">
                     <h2>Mis reseñas</h2>
                     <p>Mira todas tus reseñas en alojamientos</p>
-                    <a href="${pageContext.request.contextPath}/reviews/ListReviewsServlet.do">Ver mis reseñas</a>
+                    <a href="">Ver mis reseñas</a>
                 </section>
             </div>
         </main>
     );
-
 
 }

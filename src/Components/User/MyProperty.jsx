@@ -1,4 +1,14 @@
 
+/*
+
+                        <c:choose>
+                            <c:when test="${alojamiento.available==1 }"><p>DISPONIBLE</p></c:when>
+                            <c:otherwise><p>NO DISPONIBLE</p></c:otherwise>
+                        </c:choose>
+
+*/
+
+
 export function MyProperty({alojamiento}){
     return(
         <>
@@ -8,10 +18,9 @@ export function MyProperty({alojamiento}){
                     <img src="img/caceres.jpg" alt="imagen-sobre-lugar"/>
                     <section class="info-lugar-reserva">
                         <h5 class="nom-lugar-strong">${alojamiento.name }</h5>
-                        <c:choose>
-                            <c:when test="${alojamiento.available==1 }"><p>DISPONIBLE</p></c:when>
-                            <c:otherwise><p>NO DISPONIBLE</p></c:otherwise>
-                        </c:choose>
+
+
+
                     </section>
                     <div class="precio-con-menu">
                         

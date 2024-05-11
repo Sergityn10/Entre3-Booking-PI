@@ -10,6 +10,7 @@ import { pagBusqueda } from "./Views/search.jsx";
 import Index from "./Views/index.jsx";
 import { LogIn } from "./Views/login.jsx";
 import { SignUp } from "./Views/signup.jsx";
+import { Configuracion } from "./Components/User/Configuracion.jsx";
 
 export default function App(){
 
