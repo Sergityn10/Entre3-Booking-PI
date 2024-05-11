@@ -1,13 +1,50 @@
+import { useContext } from 'react';
 import './../css/login.css'
-export function LogIn({Click}){
+import userService from '../Controllers/UserService';
+import { UserContext } from '../Controllers/UserService';
+import { redirect } from 'react-router-dom';
+export function LogIn({myClick}){
     const mensajeError = "Error al iniciar sesión";
+	const {setUser} = useContext(UserContext)
+	
+    // const handleLogIn = (form)=>{
+		// let log = {
+		// 	id: 1,
+		// 	email: form.target.email.value,
+		// 	password: form.target.password.value,
+		// 	name: "",
+		// 	surname: ""
+        //     }
+	// 	userService.logIn(log).then(res =>setUser(log)
+	// 		)
+				
+					
+
+        
+        
+    //     myClick()
+	// 	redirect("/")
+    // }
+	const handleLogIn = (event) =>{
+		event.preventDefault();
+		const form = event.target;
+		const log = {
+			id: 1,
+			email: form.email.value,
+			password: form.password.value,
+			name: "",
+			surname: ""
+            }
+		alert(`Correo: ${log.email} \n Password: ${log.password}`)
+		myClick()
+	}
     return(
 
         <>
            
 	<div id="main">
 		<div id="contenedor-central">
-			<form id="formulario-inicio" action="" method="post">
+			<form id="formulario-inicio" onSubmit={handleLogIn} method="post">
 				<h1>Inicia sesión o crea una cuenta</h1>
 				
 					<p id="error-inicio">{mensajeError}</p>
@@ -20,7 +57,7 @@ export function LogIn({Click}){
 					placeholder="Introduce tu contraseña" required/><br/>
 
 				<p>
-					<input type="submit" onSubmit={Click} value="Continuar con e-mail"/>
+					<input type="submit"  value="Continuar con e-mail"/>
 				</p>
 			</form>
 

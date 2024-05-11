@@ -1,8 +1,12 @@
 import "./../css/buscador.css"
 export function Buscador(){
+
+    const handleSubmit = ()=>{
+        
+    }
     return(
         <>
-            <form method="get" action="SearchServlet.do">
+            <form method="get" action="search">
         <div className="container-estancias">
         <div className="buscador">
                 
