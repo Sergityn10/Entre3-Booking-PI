@@ -1,5 +1,8 @@
 import axios from 'axios';
+import { createContext } from 'react';
 const API_URL = "https://localhost:8443/Booking_entrega2/rest/"
+export const UserContext = createContext(null)
+
 const userService = {
     login: (user) => {
         return axios.get(`${API_URL}users/login`, user)

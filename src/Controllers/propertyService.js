@@ -1,5 +1,5 @@
 
-import axios from 'axios'
+import axios, { formToJSON } from 'axios'
 const API_URL = "https://localhost:8443/Booking_entrega2/rest/"
 const propertyService = {
     getAllProperties: async () => {
@@ -12,6 +12,10 @@ const propertyService = {
     },
     getAllbyUser: async (idu) => {
         const response = await axios.get(`${API_URL}properties/user/${idu}`);
+        return response.data;
+    },
+    getByName: async (form) =>{
+        const response = await axios.get(`${API_URL}properties/search`,formToJSON(form));
         return response.data;
     },
     createProperty: async (property) =>{
