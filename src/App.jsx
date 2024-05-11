@@ -11,6 +11,7 @@ import { PagBusqueda } from "./Views/search.jsx";
 import Index from "./Views/index.jsx";
 import { UserContext } from "./Controllers/UserService.js";
 import { SignUp } from "./Views/signup.jsx";
+import { Configuracion } from "./Components/User/Configuracion.jsx";
 
 
 export default function App(){
@@ -22,6 +23,10 @@ const [user, setUser] = useState(null)
         isLoggedIn? setIsLoggedIn(false) : setIsLoggedIn(true);  
     }
 
+
+
+
+
     
     return (
         <>
@@ -29,10 +34,15 @@ const [user, setUser] = useState(null)
          <Header isLogIn={isLoggedIn}/>
            <BrowserRouter>
                 <Routes>
+
                     <Route path="/" element={<Index myClick={funLogIn}/>} />
                     <Route path="/search" element={<PagBusqueda/>} />
                      <Route path="/login" element={<LogIn myClick={funLogIn} />} /> 
                      <Route path="/signup" element={<SignUp/>} /> 
+
+
+                    <Route path ="/config" element={<Configuracion/>} />
+
 
                 </Routes>
            </BrowserRouter>
