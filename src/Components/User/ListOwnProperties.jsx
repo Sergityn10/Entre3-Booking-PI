@@ -6,7 +6,7 @@ import './../../css/style-reservas.css'
 export function ListOwnProperties({listOwnProperties}){
     return (
         <>
-            {listProperties.map( (property) => <MyProperty alojamiento={property}/>)}
+            {listOwnProperties.map( (property) => <MyProperty alojamiento={property}/>)}
             
         </>
     )

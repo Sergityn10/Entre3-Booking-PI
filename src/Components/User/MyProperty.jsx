@@ -1,14 +1,4 @@
 
-/*
-
-                        <c:choose>
-                            <c:when test="${alojamiento.available==1 }"><p>DISPONIBLE</p></c:when>
-                            <c:otherwise><p>NO DISPONIBLE</p></c:otherwise>
-                        </c:choose>
-
-*/
-
-
 export function MyProperty({alojamiento}){
     return(
         <>
@@ -19,15 +9,18 @@ export function MyProperty({alojamiento}){
                     <section class="info-lugar-reserva">
                         <h5 class="nom-lugar-strong">${alojamiento.name }</h5>
 
-
+                        {alojamiento.available === 1 ? (
+                            <p>DISPONIBLE</p>
+                        ) : (
+                            <p>NO DISPONIBLE</p>
+                        )}
 
                     </section>
                     <div class="precio-con-menu">
                         
-                        <a href = "${pageContext.request.contextPath}/properties/EditAvailablePropertyServlet.do?idp=${alojamiento.id}" class="boton-bg-azul">Cambiar estado del alojamiento</a>
-                        <a href = "${pageContext.request.contextPath}/EditPropertyServlet.do?idp=${alojamiento.id}" class="boton-bg-azul">Editar</a>
-                        <a href="${pageContext.request.contextPath}/DeletePropertyServlet.do?idp=${alojamiento.id}"><img alt="Eliminar propiedad registrada" src="${pageContext.request.contextPath}/img/Iconos/delete.png"/></a>
-                        
+                        <a href = "" class="boton-bg-azul">Cambiar estado del alojamiento</a>
+                        <a href = "" class="boton-bg-azul">Editar</a>
+                        <a href=""><img alt="Eliminar propiedad registrada" src="${pageContext.request.contextPath}/img/Iconos/delete.png"/></a>
                         
                     </div>
                     
