@@ -12,10 +12,11 @@ import Index from "./Views/index.jsx";
 import { UserContext } from "./Controllers/UserService.js";
 import { SignUp } from "./Views/signup.jsx";
 import { Configuracion } from "./Components/User/Configuracion.jsx";
+import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
 
 
 export default function App(){
-const [reviews,setReviews] = useState([]);
+
 const [isLoggedIn, setIsLoggedIn] =useState(false);
 const [user, setUser] = useState(null)
 
@@ -23,11 +24,17 @@ const [user, setUser] = useState(null)
         isLoggedIn? setIsLoggedIn(false) : setIsLoggedIn(true);  
     }
 
+    const funLogOut = ()=>{
+        setIsLoggedIn(false);
+        }
+    useEffect(()=>{
+        
+        if(user){
+            setUser(user);
+            setIsLoggedIn(true);
+            }
 
-
-
-
-    
+    },[isLoggedIn])
     return (
         <>
         <UserContext.Provider value={{user, setUser, isLoggedIn, setIsLoggedIn}}>
@@ -39,7 +46,7 @@ const [user, setUser] = useState(null)
                     <Route path="/search" element={<PagBusqueda/>} />
                      <Route path="/login" element={<LogIn myClick={funLogIn} />} /> 
                      <Route path="/signup" element={<SignUp/>} /> 
-
+                    <Route path="/property/:idProperty" element={<DetailProperty/>}/>
 
                     <Route path ="/config" element={<Configuracion/>} />
 

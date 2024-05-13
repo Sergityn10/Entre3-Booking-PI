@@ -1,6 +1,6 @@
-
+import { constComunes } from "../../Controllers/constantesComunes"
 export function CardProperty({alojamiento}){
-
+    const URLProp = `${constComunes.URLlocalhost}property/${alojamiento.id}`
     return (
         <>
             <li className="elem-loc">
@@ -10,7 +10,7 @@ export function CardProperty({alojamiento}){
                         </a>
                     <div id="info-loc">
                         <div id="titulo-localizacion">
-                            <a>                            
+                            <a href={URLProp}>                            
                             
                             <h2>{alojamiento.name}</h2></a>
                             <span id="valoracion">{alojamiento.gradesAverage}</span>
@@ -37,7 +37,7 @@ export function CardProperty({alojamiento}){
                         </div>
                         <div id="info-loc-inferior">
                             <ul id="lista-alojamientos">
-                                <p>Descripción: ${alojamiento.description}</p>
+                                <p>Descripción: {alojamiento.description}</p>
                             </ul>
 
                             <div id="inferior-dcha">

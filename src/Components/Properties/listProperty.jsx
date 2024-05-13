@@ -5,9 +5,9 @@ import './../../css/listaAlojamientos.css'
 export function ListProperty({listProperties}){
     
     return (
-        <>
+        <ul>
             {listProperties.map( (property) => <CardProperty alojamiento={property}/>)}
             
-        </>
+        </ul>
     )
 }

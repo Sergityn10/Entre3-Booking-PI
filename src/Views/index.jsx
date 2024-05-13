@@ -4,12 +4,18 @@ import { ListProperty } from "../Components/Properties/listProperty"
 import propertyService from "../Controllers/propertyService"
 export default function Index({myClick}){
     
+    
+    useEffect(()=>{
+
+    },[])
+
+    
     return(
         <>
         <Buscador/>
         <main>
              
-            <h1>ESTA SERÁ LA PAGINA PRINCIPAL DE NUESTOR PROYECTO.</h1>
+            
         </main>
         
         </>

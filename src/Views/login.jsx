@@ -3,6 +3,7 @@ import './../css/login.css'
 import userService from '../Controllers/UserService';
 import { UserContext } from '../Controllers/UserService';
 import { redirect } from 'react-router-dom';
+import { LogInForm } from '../Components/Forms/LogInForm';
 export function LogIn({myClick}){
     const mensajeError = "Error al iniciar sesión";
 	const {setUser} = useContext(UserContext)
@@ -25,41 +26,16 @@ export function LogIn({myClick}){
     //     myClick()
 	// 	redirect("/")
     // }
-	const handleLogIn = (event) =>{
-		event.preventDefault();
-		const form = event.target;
-		const log = {
-			id: 1,
-			email: form.email.value,
-			password: form.password.value,
-			name: "",
-			surname: ""
-            }
-		alert(`Correo: ${log.email} \n Password: ${log.password}`)
-		myClick()
-	}
+
+
+	
     return(
 
         <>
            
 	<div id="main">
 		<div id="contenedor-central">
-			<form id="formulario-inicio" onSubmit={handleLogIn} method="post">
-				<h1>Inicia sesión o crea una cuenta</h1>
-				
-					<p id="error-inicio">{mensajeError}</p>
-				
-				<label htmlFor="email"><span>E-mail</span></label><br/> 
-                <input type="email" name="email" placeholder="Indica tu dirección de email" required/><br/>
-
-				<label htmlFor="password"><span>Contraseña</span></label><br/> <input
-					type="password" name="password"
-					placeholder="Introduce tu contraseña" required/><br/>
-
-				<p>
-					<input type="submit"  value="Continuar con e-mail"/>
-				</p>
-			</form>
+			<LogInForm/>
 
 			<div id="opciones">
 				<p>o usar una de estas opciones</p>
