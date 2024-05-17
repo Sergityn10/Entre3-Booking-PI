@@ -11,6 +11,9 @@ const userService = {
     logout: async () => {
         return await axios.get(`${API_URL}users/logout`)
     },
+    getUserByEmail: async (email)=>{
+        return await axios.get(`${API_URL}users/email/${email}`)
+    },
     getUserActual: async ()=>{
         
         return await axios.get(`${API_URL}users/actual`)

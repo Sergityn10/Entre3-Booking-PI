@@ -4,7 +4,7 @@ import userService from '../Controllers/UserService';
 import { UserContext } from '../Controllers/UserService';
 import { redirect } from 'react-router-dom';
 import { LogInForm } from '../Components/Forms/LogInForm';
-export function LogIn({myClick}){
+export function LogIn(){
     const mensajeError = "Error al iniciar sesión";
 	const {setUser} = useContext(UserContext)
 	

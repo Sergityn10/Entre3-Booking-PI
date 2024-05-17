@@ -17,7 +17,7 @@ export function PagBusqueda(){
             console.log(err)
         })
         
-    },[])
+    },[search])
     return(
         <>
         <Buscador/>

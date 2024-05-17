@@ -2,9 +2,10 @@ import { useContext, useState } from 'react';
 import "./../../css/login.css"
 import userService from '../../Controllers/UserService';
 import { UserContext } from '../../Controllers/UserService';
-import { redirect } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 
 export function LogInForm(){
+	const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -27,18 +28,19 @@ export function LogInForm(){
 			name: ``,
 			surname: ``
             }
-        userService.login(log).then((response) => alert(response.status))
-		userService.getUserActual().then((response) => {if(response.status === 200) setUser(response.data)})
-
-			
-			if(user != null){
-            setIsLoggedIn(true)
+        userService.login(log)
+		.then((response) => {
+			userService.getUserByEmail(log.email)
+				.then((response) => setUser(response.data))
+				setIsLoggedIn(true)
             
-			window.location.replace("/search")
-        }
-		else{
-            setError("Invalid email or password")
-        }
+			navigate("/")
+				})
+			.catch((err) => setError(err))
+			
+		
+            
+        
 		
         
 	}

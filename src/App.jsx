@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import Header from "./Components/Header"
 import React, { createContext, useEffect, useContext } from "react"
-import {NavLink} from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+
 import {use, Suspense } from "react"
 import { useState } from "react"
 import Loading from "./Components/Loading"
@@ -20,31 +20,28 @@ export default function App(){
 const [isLoggedIn, setIsLoggedIn] =useState(false);
 const [user, setUser] = useState(null)
 
-   const funLogIn = ()=>{
-        isLoggedIn? setIsLoggedIn(false) : setIsLoggedIn(true);  
-    }
+   
 
     const funLogOut = ()=>{
         setIsLoggedIn(false);
         }
     useEffect(()=>{
         
-        if(user){
-            setUser(user);
-            setIsLoggedIn(true);
-            }
+        
 
-    },[isLoggedIn])
+    },[])
     return (
         <>
+        
         <UserContext.Provider value={{user, setUser, isLoggedIn, setIsLoggedIn}}>
-         <Header isLogIn={isLoggedIn}/>
+         
            <BrowserRouter>
+           <Header />
                 <Routes>
 
-                    <Route path="/" element={<Index myClick={funLogIn}/>} />
+                    <Route path="/" element={<Index/>} />
                     <Route path="/search" element={<PagBusqueda/>} />
-                     <Route path="/login" element={<LogIn myClick={funLogIn} />} /> 
+                     <Route path="/login" element={<LogIn />} /> 
                      <Route path="/signup" element={<SignUp/>} /> 
                     <Route path="/property/:idProperty" element={<DetailProperty/>}/>
 

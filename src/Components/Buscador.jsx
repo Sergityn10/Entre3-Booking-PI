@@ -5,18 +5,11 @@ import { constComunes } from "../Controllers/constantesComunes"
 import { useNavigate } from "react-router-dom"
 export function Buscador(){
     const [nomAlojamiento, setNomAlojamiento] = useState("")
-    const [disponibilidad, setDisponibilidad] = useState("")
+    const [disponibilidad, setDisponibilidad] = useState("todos")
     const {search} = useLocation()
-    const createURL = ()=>{
-        console.log(window.location)
-        let path = window.location.pathname
-        if(path === "/"){
-            window.location.pathname="/search"
-            }
-
-    }
+   const navigate = useNavigate()
     const handleSubmit = ()=>{
-        createURL()
+        navigate("/search")
     }
     
 
@@ -29,11 +22,11 @@ export function Buscador(){
         setNomAlojamiento(nomQuery)
         
 
-        }, [])
+        }, [search])
     
     return(
         <>
-            <form method="get" action={`${constComunes.URLlocalhost}search`}>
+            <form method="get" onSubmit={handleSubmit}>
         <div className="container-estancias">
         <div className="buscador">
                 
@@ -63,15 +56,15 @@ export function Buscador(){
                     
             </div>
             <section className="filtros">
-           		<input type="radio" id="todos" value="todos" name="disponibilidad" {...disponibilidad == 'todos'? 'checked': ""}  required/>
+           		<input type="radio" id="todos" value="todos" name="disponibilidad" onChange={(e)=>{setDisponibilidad(e.target.value)}} checked={disponibilidad === 'todos'}  required/>
                 <label htmlFor="disp_todos">Todos</label>
            
             
-                <input type="radio" id="con_disp" value="con_disp" name="disponibilidad" {...disponibilidad == 'con_disp'? "checked": ""}required/>
+                <input type="radio" id="con_disp" value="con_disp" name="disponibilidad" onChange={(e)=>{setDisponibilidad(e.target.value)}} checked={disponibilidad === 'con_disp'}required/>
                 <label htmlFor="hoteles">Disponibles</label>
             
            
-                <input type="radio" id="no_disp" value="no_disp" name="disponibilidad" {...disponibilidad == 'no_disp'? "checked": ""}required/>
+                <input type="radio" id="no_disp" value="no_disp" name="disponibilidad" onChange={(e)=>{setDisponibilidad(e.target.value)}} checked={disponibilidad === 'no_disp'}required/>
                 <label htmlFor="no_disp">Sin disponibilidad</label>
                 
                 <input type="checkbox" id="asc_valoracion" value="asc_valoracion" name="valoracion" /*<c:if test="${valoracion == 'asc_valoracion'}">checked</c:if>*//>
