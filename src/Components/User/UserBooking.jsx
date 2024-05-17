@@ -1,28 +1,23 @@
-
-export function UserBooking(reserva){
+export function UserBooking({ propBooking }) {
     return (
         <>
-            <section class="lugar-reserva">
-	            <h3>${propBooking.key.city} </h3>
-			        <div class="box-carrito">
-		                    
-                        <section class="info-lugar-reserva">
-                            <h5 class="nom-lugar-strong"> ${propBooking.key.name}</h5> 
-                        </section>
+            <section className="lugar-reserva">
+                <h3>{propBooking.key.city}</h3>
+                <div className="box-carrito">
+                    <section className="info-lugar-reserva">
+                        <h5 className="nom-lugar-strong">{propBooking.key.name}</h5>
+                    </section>
 
-                        <section class="card">
-                                <h4>Alojamientos:</h4>   
-                        </section>
-                        
-                        <div class="precio-con-menu">    
-                            <h4>Precio total:</h4>
-                            <p>${propBooking.value.totalPrice}</p>
-                        </div>
-		                    
-		            </div>
-	                
-	        </section>   
-        
+                    <section className="card">
+                        <h4>Alojamientos:</h4>
+                    </section>
+                    
+                    <div className="precio-con-menu">
+                        <h4>Precio total:</h4>
+                        <p>{propBooking.value.totalPrice}</p>
+                    </div>
+                </div>
+            </section>
         </>
-    )
+    );
 }
