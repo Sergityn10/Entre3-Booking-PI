@@ -6,7 +6,7 @@ import { redirect } from 'react-router-dom';
 import { LogInForm } from '../Components/Forms/LogInForm';
 export function LogIn(){
     const mensajeError = "Error al iniciar sesión";
-	const {setUser} = useContext(UserContext)
+	const context = useContext(UserContext)
 	
     // const handleLogIn = (form)=>{
 		// let log = {

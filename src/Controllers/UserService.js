@@ -1,10 +1,13 @@
 import axios from 'axios';
+//AXIOS se trata de una librería que te realiza las cabeceras hechas HTTP para las llamadas a nuestra API. Si no
+//habría que utilizar el método fetch y realizar las cabeceras a mano, que se trata de un método más lioso.
 import { createContext } from 'react';
 const API_URL = "https://localhost:8443/Booking_entrega2/rest/"
 export const UserContext = createContext(null)
 
 const userService = {
     login: async (user) => {
+            
         
         return await axios.post(`${API_URL}users/login`, user)
     },

@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import "./../../css/login.css"
 import userService from '../../Controllers/UserService';
-import { UserContext } from '../../Controllers/UserService';
+import UserContext from '../../context/UserContext';
 import { redirect, useNavigate } from 'react-router-dom';
 
 export function LogInForm(){
@@ -28,19 +28,35 @@ export function LogInForm(){
 			name: ``,
 			surname: ``
             }
-        userService.login(log)
-		.then((response) => {
-			userService.getUserByEmail(log.email)
-				.then((response) => setUser(response.data))
-				setIsLoggedIn(true)
-            
-			navigate("/")
-				})
-			.catch((err) => setError(err))
+        // userService.login(log)
+		// .then((response) => {
 			
-		
+		// 	userService.getUserByEmail(log.email)
+		// 		.then((response) => setUser(response.data)).then((res) => console.log(res.data))
+		// 	setIsLoggedIn(true)
+			
+            
+		// 	navigate("/")
+		// 		})
+		// 	.catch((err) => {
+		// 		setError(err.response.data.userMessage)
+				
+		// 		})
+			
+		// setLoading(false)
             
         
+		userService.login(log).then((response)=>{
+			userService.getUserByEmail(log.email).then((res) => {
+				setUser(res.data)
+				setIsLoggedIn(true)
+				navigate("/")
+			})
+			
+			}).catch((err)=>{
+				setError(err.response.data.userMessage)
+		})
+
 		
         
 	}
@@ -53,11 +69,20 @@ export function LogInForm(){
 					<p id="error-inicio">{error}</p>
 				
 				<label htmlFor="email"><span>E-mail</span></label><br/> 
-                <input type="email" name="email" placeholder="Indica tu dirección de email" required/><br/>
+                <input type="email" name="email" 
+					onChange={(e) => setEmail(e.target.value)} 
+					placeholder="Indica tu dirección de email" 
+					value={email}
+					required/>
+				<br/>
 
-				<label htmlFor="password"><span>Contraseña</span></label><br/> <input
+				<label htmlFor="password"><span>Contraseña</span></label><br/> 
+				<input
 					type="password" name="password"
-					placeholder="Introduce tu contraseña" required/><br/>
+					placeholder="Introduce tu contraseña" 
+					onChange={(e) => setPassword(e.target.value)}
+					value={password}
+					required/><br/>
 
 				<p>
 					<input type="submit"  value="Continuar con e-mail"/>

@@ -9,22 +9,15 @@ import Loading from "./Components/Loading"
 import { LogIn } from "./Views/login.jsx";
 import { PagBusqueda } from "./Views/search.jsx";
 import Index from "./Views/index.jsx";
-import { UserContext } from "./Controllers/UserService.js";
+import UserContext from "./context/UserContext.jsx";
 import { SignUp } from "./Views/signup.jsx";
 import { Configuracion } from "./Components/User/Configuracion.jsx";
 import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
-
+import { UserContextProvider } from "./context/UserContext.jsx";
 
 export default function App(){
 
-const [isLoggedIn, setIsLoggedIn] =useState(false);
-const [user, setUser] = useState(null)
-
-   
-
-    const funLogOut = ()=>{
-        setIsLoggedIn(false);
-        }
+    
     useEffect(()=>{
         
         
@@ -33,7 +26,7 @@ const [user, setUser] = useState(null)
     return (
         <>
         
-        <UserContext.Provider value={{user, setUser, isLoggedIn, setIsLoggedIn}}>
+        <UserContextProvider>
          
            <BrowserRouter>
            <Header />
@@ -50,7 +43,7 @@ const [user, setUser] = useState(null)
 
                 </Routes>
            </BrowserRouter>
-        </UserContext.Provider>
+        </UserContextProvider>
           
                 
            

@@ -6,7 +6,7 @@ export function ListProperty({listProperties}){
     
     return (
         <ul>
-            {listProperties.map( (property) => <CardProperty alojamiento={property}/>)}
+            {listProperties.map( (property, index) => <CardProperty key= {index}alojamiento={property}/>)}
             
         </ul>
     )
