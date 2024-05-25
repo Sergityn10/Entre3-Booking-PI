@@ -22,21 +22,34 @@ export function SignInForm() {
 			"name": `${form.nombre.value}`,
 			"surname": `${form.apellidos.value}`
 		}
-		setLoading(true)
-		userService.createUser(log)
-		.then((response) =>{
+		// setLoading(true)
+		// userService.createUser(log)
+		// .then((response) =>{
 			
-			userService.getUserByEmail(log.email).then(
-				(response) => setUser(response.data))
-			setIsLoggedIn(true)
-			navigate("/")
-		})
-		.then((response) => console.log(response))
-		.catch((err) => {
-				setError(err.response.data.userMessage)
+		// 	userService.getUserByEmail(log.email).then(
+		// 		(response) => setUser(response.data))
+		// 	setIsLoggedIn(true)
+		// 	navigate("/")
+		// })
+		// .then((response) => console.log(response))
+		// .catch((err) => {
+		// 		setError(err.response.data.userMessage)
 				
-				})
+		// 		})
+		// setLoading(false)
+		setLoading(true)
+		userService.createUser(log).then((response) => {
+			userService.getUserByEmail(log.email).then((res) =>{
+				setUser(res.data)
+				setIsLoggedIn(true)
+				navigate("/")
+			})
+		})
+		.catch((err) => {
+			setError(err.response.data.userMessage)
+		})
 		setLoading(false)
+		
 	}
 	return (
 		<>
