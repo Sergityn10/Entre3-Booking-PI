@@ -1,14 +1,16 @@
 @import "colors.css";
+
 header{
     width: 100%;
     background-color: var(--color-principal);
     margin:0;
 }
+
 body{
 	margin:0;
 }
+
 .container-header{
-    
     color:white;
 }
 

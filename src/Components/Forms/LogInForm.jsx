@@ -56,8 +56,6 @@ export function LogInForm(){
 			}).catch((err)=>{
 				setError(err.response.data.userMessage)
 		})
-
-		
         
 	}
 
