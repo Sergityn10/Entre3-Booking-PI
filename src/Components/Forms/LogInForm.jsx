@@ -60,36 +60,30 @@ export function LogInForm(){
 	}
 
     return (
-		
-        <div id="main">
-			<div id="contenedor-central">
-				<form id="formulario-inicio" onSubmit={handleLogIn} method="post">
-					<h1>Inicia sesión o crea una cuenta</h1>
-					
-						<p id="error-inicio">{error}</p>
-					
-					<label htmlFor="email"><span>E-mail</span></label><br/> 
-					<input type="email" name="email" 
-						onChange={(e) => setEmail(e.target.value)} 
-						placeholder="Indica tu dirección de email" 
-						value={email}
-						required/>
-					<br/>
-
-					<label htmlFor="password"><span>Contraseña</span></label><br/> 
-					<input
-						type="password" name="password"
-						placeholder="Introduce tu contraseña" 
-						onChange={(e) => setPassword(e.target.value)}
-						value={password}
-						required/><br/>
-
-					<p>
-						<input type="submit"  value="Continuar con e-mail"/>
-					</p>
-				</form>
-			</div>
-		</div>
+		<form id="formulario-inicio" onSubmit={handleLogIn} method="post">
+			<h1>Inicia sesión o crea una cuenta</h1>
 			
+			<p id="error-inicio">{error}</p>
+			
+			<label htmlFor="email"><span>E-mail</span></label> 
+			<input type="email" name="email" 
+				onChange={(e) => setEmail(e.target.value)} 
+				placeholder="Indica tu dirección de email" 
+				value={email}
+				required/>
+			
+
+			<label htmlFor="password"><span>Contraseña</span></label> 
+			<input
+				type="password" name="password"
+				placeholder="Introduce tu contraseña" 
+				onChange={(e) => setPassword(e.target.value)}
+				value={password}
+				required/>
+
+			<p>
+				<input type="submit"  value="Continuar con e-mail"/>
+			</p>
+		</form>		
     )
 }

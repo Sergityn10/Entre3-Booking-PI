@@ -9,7 +9,7 @@ export default function Header(){
     
     return (
         <header>
-           <div className="container-header">
+            <div className="container-header">
                 <nav id="cabecera-nav">
                     <div className="title">
                         <NavLink to="/"><h1>Booking.com</h1></NavLink>
@@ -36,8 +36,10 @@ export default function Header(){
                 </nav>
 
             </div>
-
         </header>
+           
+
+        
           
     )
 }

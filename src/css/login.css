@@ -19,8 +19,6 @@ a {
     text-decoration: none; 
 }
 
-
-
 #main {
     display: flex;
     flex-direction: column;
@@ -36,6 +34,11 @@ a {
 
 label {
     padding: 0px 0px 4px;
+}
+
+#formulario-inicio {
+    display: flex;
+    flex-direction: column;
 }
 
 #formulario-inicio span {

@@ -16,37 +16,30 @@ import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
 import { UserContextProvider } from "./context/UserContext.jsx";
 
 export default function App(){
-
     
     useEffect(()=>{
         
-        
-
     },[])
     return (
         <>
-        
-        <UserContextProvider>
-         
-           <BrowserRouter>
-           <Header />
-                <Routes>
+            <UserContextProvider>
+            
+            <BrowserRouter>
+            
+            <Header />
+            
+            
+                    <Routes>
+                        <Route path="/" element={<Index/>} />
+                        <Route path="/search" element={<PagBusqueda/>} />
+                        <Route path="/login" element={<LogIn />} /> 
+                        <Route path="/signup" element={<SignUp/>} /> 
+                        <Route path="/property/:idProperty" element={<DetailProperty/>}/>
 
-                    <Route path="/" element={<Index/>} />
-                    <Route path="/search" element={<PagBusqueda/>} />
-                     <Route path="/login" element={<LogIn />} /> 
-                     <Route path="/signup" element={<SignUp/>} /> 
-                    <Route path="/property/:idProperty" element={<DetailProperty/>}/>
-
-                    <Route path ="/config" element={<Configuracion/>} />
-
-
-                </Routes>
-           </BrowserRouter>
-        </UserContextProvider>
-          
-                
-           
+                        <Route path ="/config" element={<Configuracion/>} />
+                    </Routes>
+            </BrowserRouter>
+            </UserContextProvider>    
         </>
     )
 }

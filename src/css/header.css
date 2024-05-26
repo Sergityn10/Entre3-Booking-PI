@@ -4,6 +4,7 @@ header{
     width: 100%;
     background-color: var(--color-principal);
     margin:0;
+    padding: 0;
 }
 
 body{
