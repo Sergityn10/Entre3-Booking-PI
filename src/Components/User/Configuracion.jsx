@@ -6,7 +6,7 @@ import './../../css/style-perfil-usuario.css';
 export function Configuracion() {
     return (
         <main>
-            <h1>CONFIGURACIÓN DE LA CUENTA</h1>
+            <h1 className="titulo-configuracion">CONFIGURACIÓN DE LA CUENTA</h1>
             <div className="contenedor-perfil">
                 <section className="card-perfil">
                     <h2>Información del perfil</h2>

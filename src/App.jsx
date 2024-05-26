@@ -23,12 +23,9 @@ export default function App(){
     return (
         <>
             <UserContextProvider>
-            
-            <BrowserRouter>
-            
-            <Header />
-            
-            
+                <BrowserRouter>
+                    <Header />
+                
                     <Routes>
                         <Route path="/" element={<Index/>} />
                         <Route path="/search" element={<PagBusqueda/>} />
@@ -38,7 +35,7 @@ export default function App(){
 
                         <Route path ="/config" element={<Configuracion/>} />
                     </Routes>
-            </BrowserRouter>
+                </BrowserRouter>
             </UserContextProvider>    
         </>
     )
