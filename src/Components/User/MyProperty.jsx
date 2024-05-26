@@ -5,7 +5,7 @@ export function MyProperty({ alojamiento }) {
             <section className="lugar-reserva">
                 <h3>{alojamiento.city}</h3>
                 <div className="box-carrito">
-                    <img src="img/caceres.jpg" alt="imagen-sobre-lugar" />
+                    <img src="img/Lugares/caceres.jpg" alt="imagen-sobre-lugar" />
 
                     <section className="info-lugar-reserva">
 

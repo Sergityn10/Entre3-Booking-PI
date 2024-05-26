@@ -1,6 +1,8 @@
 import { useState } from "react";
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import { Link, NavLink } from 'react-router-dom';
+import { MisAlojamientos } from "./MisAlojamientos";
 import './../../css/style-perfil-usuario.css';
 
 export function Configuracion() {
@@ -23,7 +25,7 @@ export function Configuracion() {
                 <section className="card-perfil">
                     <h2>Mis propiedades registradas</h2>
                     <p>Gestiona, actualiza y revisa toda la información acerca de tus apartamentos favoritos</p>
-                    <NavLink to="/">Gestionar mis alojamientos</NavLink>
+                    <NavLink to="misAlojamientos">Gestionar mis alojamientos</NavLink>
                 </section>
                 
                 <section className="card-perfil">
@@ -38,6 +40,7 @@ export function Configuracion() {
                     <NavLink to="/">Ver mis reseñas</NavLink>
                 </section>
             </div>
+
         </main>
     );
 }
