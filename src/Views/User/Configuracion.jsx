@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import React from "react";
-<<<<<<< HEAD
+
 import { Link, NavLink,Route, useMatch } from 'react-router-dom';
-=======
-import { Routes, Route } from "react-router-dom";
-import { Link, NavLink } from 'react-router-dom';
-import { MisAlojamientos } from "./MisAlojamientos";
->>>>>>> 5e7497ed76c04758b084fa3a006f6f32386e9284
-import './../../css/style-perfil-usuario.css';
+
 import { Routes } from "react-router-dom";
+
+import { MisAlojamientos } from "./MisAlojamientos";
+
+import './../../css/style-perfil-usuario.css';
 import { EditUser } from "../../Components/User/EditUser";
 import { SignInForm } from "../../Components/Forms/SignInForm";
 

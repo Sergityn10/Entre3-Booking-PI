@@ -52,7 +52,7 @@ export function SignInForm() {
 			userService.updateUser(log).then((response) => {
 			userService.getUserByEmail(log.email).then((res) =>{
 				setUser(res.data)
-				setIsLoggedIn(true)
+				
 				navigate("/")
 			})
 		})
@@ -63,6 +63,13 @@ export function SignInForm() {
 		
 		setLoading(false)
 		
+	}
+	const handleDelete = (event) =>{
+		userService.deleteUser(user.id).then((response) =>{
+			setIsLoggedIn(false)
+			setUser(null)
+			navigate("/")
+		})
 	}
 	useEffect(()=>{
 		if(isLoggedIn){
@@ -107,7 +114,8 @@ export function SignInForm() {
 					<br />
 				<p id="error-inicio">{myerror}</p>
 				<p>
-					{isLoggedIn? <input type="submit" value="Editar usuario" /> :<input type="submit" value="Crear cuenta" />}
+					
+					{isLoggedIn? <><input type="submit" value="Editar usuario" /> <input type="button" value="Eliminar cuenta" onClick={handleDelete} /></>:<input type="submit" value="Crear cuenta" />}
 					
 
 				</p>

@@ -11,8 +11,6 @@ export const UserContext = createContext(null)
 
 const userService = {
     login: async (user) => {
-            
-        
         return await axios.post(`${API_URL}users/login`, user)
     },
     logout: async () => {
@@ -42,8 +40,8 @@ const userService = {
         const response = await axios.put(`${API_URL}users`,user)
         return response
     },
-    deleteUser: async ()=>{
-        const response = await axios.delete(`${API_URL}users`)
+    deleteUser: async (idu)=>{
+        const response = await axios.delete(`${API_URL}users/${idu}`)
         return response
     }
 }
