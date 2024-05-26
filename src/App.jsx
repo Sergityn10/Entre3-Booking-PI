@@ -11,7 +11,8 @@ import { PagBusqueda } from "./Views/search.jsx";
 import Index from "./Views/index.jsx";
 import UserContext from "./context/UserContext.jsx";
 import { SignUp } from "./Views/signup.jsx";
-import { Configuracion } from "./Components/User/Configuracion.jsx";
+import { EditUser } from "./Components/User/EditUser.jsx";
+import { Configuracion } from "./Views/User/Configuracion.jsx";
 import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
 import { UserContextProvider } from "./context/UserContext.jsx";
 
@@ -36,7 +37,10 @@ export default function App(){
                         <Route path="/signup" element={<SignUp/>} /> 
                         <Route path="/property/:idProperty" element={<DetailProperty/>}/>
 
-                        <Route path ="/config" element={<Configuracion/>} />
+                        <Route exact path ="/config" element={<Configuracion/>} />
+                        <Route path="/config/editUser" element={<EditUser />} />
+                        
+                           
                     </Routes>
             </BrowserRouter>
             </UserContextProvider>    
