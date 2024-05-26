@@ -7,21 +7,18 @@ import UserContext from "../context/UserContext"
 import { NavLink } from "react-router-dom"
 import { useContext } from "react"
 export default function Index(){
-     const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
+    const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
    
-    
     useEffect(()=>{
 
     },[])
 
-    
     return(
         <>
-        <Buscador/>
-        <main>
-             
-        </main>
         
+            <main>
+                <Buscador/>
+            </main>
         </>
     )
 }

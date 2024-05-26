@@ -1,12 +1,17 @@
 @import "header.css";
+
+.titulo-configuracion {
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
+
 .contenedor-perfil{
     width: 100%;
     display: flex;
-
     flex-wrap: wrap;
     justify-content: space-between;
-
 }
+
 .card-perfil{
     box-sizing: border-box;
     display: flex;
@@ -17,6 +22,7 @@
     padding: 10px;
     border-radius: 8px; 
 }
+
 .card-perfil:nth-child(even){
     margin-right: 10px;
 }

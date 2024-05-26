@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import React from "react";
+<<<<<<< HEAD
 import { Link, NavLink,Route, useMatch } from 'react-router-dom';
+=======
+import { Routes, Route } from "react-router-dom";
+import { Link, NavLink } from 'react-router-dom';
+import { MisAlojamientos } from "./MisAlojamientos";
+>>>>>>> 5e7497ed76c04758b084fa3a006f6f32386e9284
 import './../../css/style-perfil-usuario.css';
 import { Routes } from "react-router-dom";
 import { EditUser } from "../../Components/User/EditUser";
@@ -11,7 +17,7 @@ export function Configuracion() {
     
     return (
         <main>
-            <h1>CONFIGURACIÓN DE LA CUENTA</h1>
+            <h1 className="titulo-configuracion">CONFIGURACIÓN DE LA CUENTA</h1>
             <div className="contenedor-perfil">
                 <section className="card-perfil">
                     <h2>Información del perfil</h2>
@@ -28,7 +34,7 @@ export function Configuracion() {
                 <section className="card-perfil">
                     <h2>Mis propiedades registradas</h2>
                     <p>Gestiona, actualiza y revisa toda la información acerca de tus apartamentos favoritos</p>
-                    <NavLink to="/">Gestionar mis alojamientos</NavLink>
+                    <NavLink to="misAlojamientos">Gestionar mis alojamientos</NavLink>
                 </section>
                 
                 <section className="card-perfil">
@@ -43,11 +49,7 @@ export function Configuracion() {
                     <NavLink to="/">Ver mis reseñas</NavLink>
                 </section>
             </div>
-            
-                            
-            
-       
-         
+
         </main>
     );
 }

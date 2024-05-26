@@ -43,9 +43,10 @@ aside {
 }
 
 /*Reglas que establecen el estilo del carrusel de alojamientos*/
-main section:first-child {
+/*main section:first-child {
     margin-top:50px;
 }
+*/
 
 .carrusel-alojamientos {
     position: relative;
