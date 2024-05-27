@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import "./../../css/login.css"
 import userService from '../../Controllers/UserService';
 import UserContext from '../../context/UserContext';
-import { redirect, useNavigate } from 'react-router-dom';
+import { json, redirect, useNavigate } from 'react-router-dom';
 
 export function LogInForm(){
 	const navigate = useNavigate()
@@ -49,7 +49,9 @@ export function LogInForm(){
 		userService.login(log).then((response)=>{
 			userService.getUserByEmail(log.email).then((res) => {
 				setUser(res.data)
+				
 				setIsLoggedIn(true)
+				window.localStorage.setItem("LocalUser",JSON.stringify(res.data))
 				navigate("/")
 			})
 			

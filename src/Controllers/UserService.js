@@ -43,6 +43,9 @@ const userService = {
     deleteUser: async (idu)=>{
         const response = await axios.delete(`${API_URL}users/${idu}`)
         return response
+    },
+    getLocalUserByCookie: async () =>{
+        return  window.localStorage.getItem("LocalUser")
     }
 }
 export default userService 

@@ -17,13 +17,14 @@ import { Configuracion } from "./Views/User/Configuracion.jsx"
 
 import { MisAlojamientos } from "./Views/User/MisAlojamientos.jsx";
 
-import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
-import { UserContextProvider } from "./context/UserContext.jsx";
 
+import { UserContextProvider } from "./context/UserContext.jsx";
+import { MisFavoritos } from "./Views/User/MisFavoritos.jsx";
+import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
 
 
 export default function App(){
-    
+    const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
     useEffect(()=>{
         
     },[])
@@ -43,6 +44,7 @@ export default function App(){
 
                         <Route exact path ="/config" element={<Configuracion/>} />
                         <Route path="/config/editUser" element={<EditUser />} />
+                        <Route path="/config/favorites" element={<MisFavoritos />} />
                         <Route path="/misAlojamientos" element={<MisAlojamientos />} /> {/* Ruta independiente */}
 
                     </Routes>

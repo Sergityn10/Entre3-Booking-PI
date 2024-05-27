@@ -42,6 +42,7 @@ export function SignInForm() {
 			userService.getUserByEmail(log.email).then((res) =>{
 				setUser(res.data)
 				setIsLoggedIn(true)
+				window.localStorage.setItem("LocalUser",JSON.stringify(res.data))
 				navigate("/")
 			})
 		})
@@ -52,7 +53,7 @@ export function SignInForm() {
 			userService.updateUser(log).then((response) => {
 			userService.getUserByEmail(log.email).then((res) =>{
 				setUser(res.data)
-				
+				window.localStorage.setItem("LocalUser",JSON.stringify(res.data))
 				navigate("/")
 			})
 		})

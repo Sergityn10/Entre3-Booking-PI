@@ -27,7 +27,7 @@ export function Configuracion() {
                 <section className="card-perfil">
                     <h2>Tus alojamientos favoritos</h2>
                     <p>Revisa todos tus alojamientos favoritos</p>
-                    <NavLink to="/">Ver mis alojamientos favoritos</NavLink>
+                    <NavLink to="favorites">Ver mis alojamientos favoritos</NavLink>
                 </section>
                 
                 <section className="card-perfil">

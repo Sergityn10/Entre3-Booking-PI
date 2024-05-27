@@ -3,19 +3,20 @@ import { useParams } from "react-router-dom"
 import propertyService from "../../Controllers/propertyService"
 import "./../../css/detalleAlojamiento.css"
 export function DetailProperty(){
-    const {idProperty} = useParams()
+    const {idProperty} = useParams();
 
     const [property,setProperty] = useState(null)
     const [loading,setLoading] = useState(true)
-
+    
     useEffect(() =>{
-        propertyService.getProperty(idProperty)
-        .then((response) => {
-            setProperty(response)
+        
+        propertyService.getProperty(idProperty).then( (response) =>{
+            setProperty(response.data)
             setLoading(false)
-            })
-        .then((res) => console.log(res))
-    },[])
+        })
+        
+        
+    },[idProperty]);
 
     return (
         <div id="main">

@@ -1,12 +1,29 @@
 import '../css/header.css';
 
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useContext } from 'react';
 import UserContext from '../context/UserContext';
 
 export default function Header(){
+    const navigate = useNavigate()
     const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
-    
+    useEffect(()=>{
+        const localUser = window.localStorage.getItem("LocalUser")
+        if(localUser){
+            const JSONuser = JSON.parse(localUser)
+            setUser(JSONuser)
+            setIsLoggedIn(true)
+        }
+    },[])
+
+    const handleLogout = ()=>{
+        window.localStorage.removeItem("LocalUser")
+        setUser(null)
+        setIsLoggedIn(false)
+        navigate('/')
+        
+    }
     return (
         <header>
             <div className="container-header">
@@ -28,7 +45,7 @@ export default function Header(){
                             <NavLink className="formulario" to="/login">Iniciar sesión</NavLink>
                             </>:
                             <><NavLink className="formulario" to="/config">¡Hola, {user.surname}!</NavLink>
-                                <NavLink className="formulario" to="/logout">Cerrar sesión</NavLink>
+                                <button className="formulario" onClick={handleLogout}>Cerrar sesión</button>
                             </>
                         }
                     </div>

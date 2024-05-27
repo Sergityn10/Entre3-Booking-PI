@@ -1,5 +1,6 @@
 import axios from 'axios'
 const API_URL = "https://localhost:8443/Booking_entrega2/rest/"
+const path = "favorites"
 const accommodationService = {
     getAccommodations: async () => {
         const response = await axios.get(`${API_URL}accoms`)
