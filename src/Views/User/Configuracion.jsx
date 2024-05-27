@@ -33,7 +33,7 @@ export function Configuracion() {
                 <section className="card-perfil">
                     <h2>Mis propiedades registradas</h2>
                     <p>Gestiona, actualiza y revisa toda la información acerca de tus apartamentos favoritos</p>
-                    <NavLink to="misAlojamientos">Gestionar mis alojamientos</NavLink>
+                    <NavLink to="mis-alojamientos">Gestionar mis alojamientos</NavLink>
                 </section>
                 
                 <section className="card-perfil">

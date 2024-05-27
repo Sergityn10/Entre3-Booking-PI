@@ -12,7 +12,7 @@ export function MisAlojamientos() {
     const [listaPropiedades, setListaPropiedades] = useState([])
 
     useEffect(() =>{
-        propertyService.getAllbyUser(user.id)
+        propertyService.getAllbyUser()
         .then((response) =>{
             setListaPropiedades(response)
             console.log(response)
@@ -22,17 +22,17 @@ export function MisAlojamientos() {
     //En este caso, cada vez que se renderice (solo una vez), así que no hay que poner nada
 
     return (
-      <main>
-        <div class="container-config">
-            	<section id="reservas">
-            		<h2>Tus alojamientos registrados</h2>
-                    <NavLink to="/">Añadir nueva propiedad</NavLink>
-            	</section>
-            	
-                <ListOwnProperties listOwnProperties = {listaPropiedades}/>
-
-        </div> 
       
-      </main>
+      <div className="container-config">
+            <section id="reservas">
+              <h2>Tus alojamientos registrados</h2>
+                  <NavLink to="/">Añadir nueva propiedad</NavLink>
+            </section>
+            
+            <ListOwnProperties listOwnProperties = {listaPropiedades}/>
+
+      </div> 
+      
+      
     );
 }
