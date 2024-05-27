@@ -1,6 +1,10 @@
 
 import axios, { formToJSON } from 'axios'
-const API_URL = "https://localhost:8443/Booking_entrega2/rest/"
+
+//CAMBIAR PARA DESACTIVAR SSL
+//const API_URL = "https://localhost:8443/Booking_entrega2/rest/"
+const API_URL = "http://localhost:8080/Booking_entrega2/rest/"
+
 const propertyService = {
     getAllProperties: async () => {
         const response = await axios.get(`${API_URL}properties/`);
@@ -10,8 +14,8 @@ const propertyService = {
         const response = await axios.get(`${API_URL}properties/${idp}`);
         return response.data;
     },
-    getAllbyUser: async (idu) => {
-        const response = await axios.get(`${API_URL}properties/user/${idu}`);
+    getAllbyUser: async () => {
+        const response = await axios.get(`${API_URL}properties/user`);
         return response.data;
     },
     getByName: async (query) =>{

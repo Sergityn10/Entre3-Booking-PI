@@ -37,7 +37,7 @@ export default function App(){
                         <Route path="/property/:idProperty" element={<DetailProperty/>}/>
 
                         <Route path="/config" element={<Configuracion />} />
-                        <Route path="/misAlojamientos" element={<MisAlojamientos />} /> {/* Ruta independiente */}
+                        <Route path="/config/mis-alojamientos" element={<MisAlojamientos />} /> {/* Ruta independiente */}
                     </Routes>
                 </BrowserRouter>
             </UserContextProvider>    
