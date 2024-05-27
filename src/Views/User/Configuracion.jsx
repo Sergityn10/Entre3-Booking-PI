@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import { Link, NavLink } from 'react-router-dom';
+
+import { Link, NavLink,Route, useMatch } from 'react-router-dom';
+
+import { Routes } from "react-router-dom";
+
 import { MisAlojamientos } from "./MisAlojamientos";
+
 import './../../css/style-perfil-usuario.css';
+import { EditUser } from "../../Components/User/EditUser";
+import { SignInForm } from "../../Components/Forms/SignInForm";
 
 export function Configuracion() {
+    
+    
     return (
         <main>
             <h1 className="titulo-configuracion">CONFIGURACIÓN DE LA CUENTA</h1>
@@ -13,7 +21,7 @@ export function Configuracion() {
                 <section className="card-perfil">
                     <h2>Información del perfil</h2>
                     <p>Actualiza tus datos personales.</p>
-                    <NavLink to="/">Editar perfil</NavLink>
+                    <NavLink to="editUser">Editar perfil</NavLink>
                 </section>
                 
                 <section className="card-perfil">
