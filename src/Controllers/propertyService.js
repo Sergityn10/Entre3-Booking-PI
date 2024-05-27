@@ -3,8 +3,8 @@
 import axios, { formToJSON } from 'axios'
 
 //CAMBIAR PARA DESACTIVAR SSL
-//const API_URL = "https://localhost:8443/Booking_entrega2/rest/"
-const API_URL = "http://localhost:8080/Booking_entrega2/rest/"
+const API_URL = "https://localhost:8443/Booking_entrega2/rest/"
+//const API_URL = "http://localhost:8080/Booking_entrega2/rest/"
 
 
 const propertyService = {
