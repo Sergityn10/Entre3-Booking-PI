@@ -4,35 +4,35 @@ import UserContext from "../../context/UserContext";
 import { useContext } from "react";
 import { Link, NavLink } from 'react-router-dom';
 import { ListOwnProperties } from "../../Components/User/ListOwnProperties";
-import './../../css/style-reservas.css';
-import propertyService from "../../Controllers/propertyService";
+import {ListAccomodations} from "../../Components/User/ListAccommodations";
+import './../../css/listaHabitaciones.css';
+import accommodationService from "../../Controllers/accommodationService";
 
 export function MisAlojamientos() {
     const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
-    const [listaPropiedades, setListaPropiedades] = useState([])
+    const [listaHabitaciones, setListaHabitaciones] = useState([])
 
+    //Hay que pasarle el idProperty????????????????
     useEffect(() =>{
-        propertyService.getAllProperties()
+        accommodationService.getAccommodationsByIdp()
         .then((response) =>{
-            setListaPropiedades(response)
+            setListaHabitaciones(response)
             console.log(response)
         })
     }, [])
-    //En los corchetes se pone la dependencia, cuando se quiere que se ejecute otra vez la consulta
-    //En este caso, cada vez que se renderice (solo una vez), así que no hay que poner nada
 
     return (
       
-      <div className="container-config">
-            <section id="reservas">
-              <h2>Tus alojamientos registrados</h2>
-                  <NavLink to="/">Añadir nueva propiedad</NavLink>
+        <div class="container-reservas">
+            <section id="titulo">
+                <h2>Alojamiento: {alojamiento.name} - Habitaciones</h2>
+
+                <NavLink to="/">Añadir nueva habitación</NavLink>
             </section>
             
             <ListOwnProperties listOwnProperties = {listaPropiedades}/>
 
       </div> 
-      
       
     );
 }
