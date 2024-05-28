@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { ReviewForm } from "../../Components/Forms/ReviewForm"
 import propertyService from "../../Controllers/propertyService"
 import "./../../css/detalleAlojamiento.css"
 export function DetailProperty(){
@@ -23,14 +24,14 @@ export function DetailProperty(){
         {loading ? null : <>
             <div id="main">
 
-        <div id="enlace-secciones">
-            <a href=""><span>Vista general</span></a>
-            <a href=""><span>Info y precios</span></a>
-            <a href=""><span>Servicios</span></a>
-            <a href=""><span>Léeme</span></a>
-            <a href=""><span>A tener en cuenta</span></a>
-            <a href=""><span>Comentarios de clientes</span></a>
-        </div>
+                <div id="enlace-secciones">
+                    <a href=""><span>Vista general</span></a>
+                    <a href=""><span>Info y precios</span></a>
+                    <a href=""><span>Servicios</span></a>
+                    <a href=""><span>Léeme</span></a>
+                    <a href=""><span>A tener en cuenta</span></a>
+                    <a href=""><span>Comentarios de clientes</span></a>
+                </div>
 
         <hr className="separator"/>
 
@@ -156,10 +157,10 @@ export function DetailProperty(){
             </div>
             </div>
             <div id="seccion-tabla">
-            <div id="titulo-seccion-tabla">
+                <div id="titulo-seccion-tabla">
                 <h2>Disponibilidad</h2>
                 <a href="">Igualamos el precio</a>
-            </div>
+                </div>
             <table className="hotel-table">
                 <thead>
                     <tr>
@@ -210,6 +211,8 @@ export function DetailProperty(){
                 </tbody>
             </table>
         </div>
+
+            <ReviewForm alojamiento={alojamiento}/>
             </div>
         </> 
         }

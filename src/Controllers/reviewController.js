@@ -1,20 +1,20 @@
 import axios from 'axios';
 const API_URL = "https://localhost:8443/Booking_entrega2/rest/"
 const reviewService = {
-      getAllReviews: async ()=>{
-            const response = await axios.get(`${API_URL}reviews`);
+      getAllReviewsByUser: async (idu)=>{
+            const response = await axios.get(`${API_URL}reviews/user/${idu}`);
             return response.data;
       },
-      getReviewById: async (idr)=>{
-            const response = await axios.get(`${API_URL}reviews/${idr}`);
+      getReviewById: async (idp,idu)=>{
+            const response = await axios.get(`${API_URL}reviews/${idp}/user/${idu}`);
             return response.data;
       },
-      createReview: async (review)=>{
-            const response = await axios.post(`${API_URL}reviews`, review);
+      createReview: async (review, idu)=>{
+            const response = await axios.post(`${API_URL}reviews/user/${idu}`, review);
             return response;
       },
-      updateReview: async (review)=>{
-            const response = await axios.put(`${API_URL}reviews`, review);
+      updateReview: async (review, idu)=>{
+            const response = await axios.put(`${API_URL}reviews/user/${idu}`, review);
             return response;
       },
       deleteReview: async (idr)=>{

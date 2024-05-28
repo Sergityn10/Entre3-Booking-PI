@@ -21,7 +21,7 @@ export default function Header(){
         window.localStorage.removeItem("LocalUser")
         setUser(null)
         setIsLoggedIn(false)
-        navigate('/')
+        
         
     }
     return (
@@ -44,8 +44,8 @@ export default function Header(){
                             <NavLink className="formulario" to="/signup">Hazte tu cuenta</NavLink>
                             <NavLink className="formulario" to="/login">Iniciar sesión</NavLink>
                             </>:
-                            <><NavLink className="formulario" to="/config">¡Hola, {user.surname}!</NavLink>
-                                <button className="formulario" onClick={handleLogout}>Cerrar sesión</button>
+                            <><NavLink className="alojamiento seleccion" to="/config">¡Hola, {user.surname}!</NavLink>
+                                <NavLink to="/" className="alojamiento seleccion" onClick={handleLogout}>Cerrar sesión</NavLink>
                             </>
                         }
                     </div>
