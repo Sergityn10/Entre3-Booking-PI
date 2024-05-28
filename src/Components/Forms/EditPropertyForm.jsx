@@ -1,4 +1,4 @@
-export function EditPropertyForm(alojamiento){
+export function EditPropertyForm({alojamiento}){
     return (     
         <form id="formulario-registro" action="" method="post">
             <h1>Edición Alojamiento</h1>

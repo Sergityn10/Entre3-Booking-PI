@@ -1,4 +1,4 @@
-export function CreateAccommodationForm(alojamiento){
+export function CreateAccommodationForm({alojamiento}){
     return (
             <form id="añadir-habitacion" action="" method="post">
                 <label for="nombre"><span>Nombre</span></label><br/>
