@@ -5,21 +5,24 @@ import "./../../css/detalleAlojamiento.css"
 export function DetailProperty(){
     const {idProperty} = useParams();
 
-    const [property,setProperty] = useState(null)
-    const [loading,setLoading] = useState(true)
+    const [alojamiento,setProperty] = useState()
+    const [loading, setLoading] = useState(true);
+
     
     useEffect(() =>{
         
-        propertyService.getProperty(idProperty).then( (response) =>{
+        propertyService.getProperty(idProperty).then((response) =>{
             setProperty(response.data)
             setLoading(false)
         })
-        
-        
-    },[idProperty]);
+              
+    }, [idProperty])
 
-    return (
-        <div id="main">
+    return(
+        <>
+        {loading ? null : <>
+            <div id="main">
+
         <div id="enlace-secciones">
             <a href=""><span>Vista general</span></a>
             <a href=""><span>Info y precios</span></a>
@@ -31,6 +34,7 @@ export function DetailProperty(){
 
         <hr className="separator"/>
 
+        
         <div id="main-superior">
             <div id="superior-izq">
                 <div className="recuadro">
@@ -77,13 +81,19 @@ export function DetailProperty(){
                 </div>
 
             </div>
+    
+
+        </div>
+
+        <hr className="separator"/>
+
             <div id="superior-dcha">
                 <div id="nombre-alojamiento">
-                    <h1>{property.name}</h1>
+                    <h1>{alojamiento.name}</h1>
                     <button id="reservar-boton"><span>Reservar ahora</span></button>
                 </div>
                 <div id="info-superior">
-                        <span id="direccion">{property.address} - <a href="">Ubicación Excelente - Ver Mapa</a></span>
+                        <span id="direccion">{alojamiento.address} - <a href="">Ubicación Excelente - Ver Mapa</a></span>
                         <span id="valoracion">8,6</span>
 
                 </div>
@@ -104,12 +114,12 @@ export function DetailProperty(){
                 </div>
 
             </div>
-        </div>
+        
 
         <div id="main-inferior">
             <div id="parrafos-info">
-                <p>Contáctanos: <a href={`tel:${property.telephone}`} >{property.telephone}</a></p>
-                <p>DESCRIPCIÓN DINÁMICA: {property.description}</p>
+                <p>Contáctanos: <a href={`tel:${alojamiento.telephone}`} >{alojamiento.telephone}</a></p>
+                <p>DESCRIPCIÓN DINÁMICA: {alojamiento.description}</p>
                 </div>
             <div id="mas-informacion">
                 <h3>Puntos fuertes del alojamiento</h3>
@@ -144,14 +154,8 @@ export function DetailProperty(){
                 
                 
             </div>
-
-        </div>
-
-
-
-        <hr className="separator"/>
-
-        <div id="seccion-tabla">
+            </div>
+            <div id="seccion-tabla">
             <div id="titulo-seccion-tabla">
                 <h2>Disponibilidad</h2>
                 <a href="">Igualamos el precio</a>
@@ -206,11 +210,31 @@ export function DetailProperty(){
                 </tbody>
             </table>
         </div>
+            </div>
+        </> 
+        }
+
+        </>
+
+    )
+
+    
+}
+
+    
+        
+
+        
+
+
+
+
+        
+
+        
 
        
         
 
 
-    </div>
-    )
-}
+   

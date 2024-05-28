@@ -6,7 +6,8 @@ export function UserContextProvider({children}){
     const [jwt, setJWT] = useState(null)
     const [isLoggedIn, setIsLoggedIn] =useState(false);
     const [user, setUser] = useState(null)
-    return <UserContext.Provider value={{jwt, setJWT,user, setUser, isLoggedIn, setIsLoggedIn}}>
+    const [listFavorites, setListFavorites] = useState([])
+    return <UserContext.Provider value={{jwt, setJWT,user, setUser, isLoggedIn, setIsLoggedIn, listFavorites, setListFavorites}}>
         {children}
     </UserContext.Provider>
 }
