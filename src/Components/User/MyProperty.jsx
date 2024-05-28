@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 
 export function MyProperty({ alojamiento }) {
     return (
@@ -18,9 +19,9 @@ export function MyProperty({ alojamiento }) {
                     </section>
 
                     <div className="precio-con-menu">
-                        <a href="" className="boton-bg-azul">Cambiar estado del alojamiento</a>
-                        <a href="" className="boton-bg-azul">Editar</a>
-                        <a href=""><img alt="Eliminar propiedad registrada" src="/img/Iconos/delete.png"/></a>
+                        <NavLink to="" className="boton-bg-azul">Cambiar estado del alojamiento</NavLink>
+                        <NavLink to={`/edit-property/${alojamiento.id}`} className="boton-bg-azul">Editar</NavLink>
+                        <NavLink to=""><img alt="Eliminar propiedad registrada" src="/img/Iconos/delete.png" /></NavLink>
                     </div>
                 </div>
             </section>
