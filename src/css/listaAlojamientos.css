@@ -250,7 +250,18 @@ input[type="checkbox"] {
     color: #595959;
 }
 
-.elem-loc svg{
+/* .elem-loc svg{
+    position:absolute;
+    left: 160px;
+    width: 30px;
+    height: 30px;
+    fill: #006ce4;
+    background-color: rgba(255, 255, 255, 0.808);
+    padding: 4px;
+    border-radius:50%;
+} */
+
+.fav-button svg{
     position:absolute;
     left: 160px;
     width: 30px;
@@ -260,4 +271,11 @@ input[type="checkbox"] {
     padding: 4px;
     border-radius:50%;
 }
+
+.fav-button{
+    border: none; /* Sin borde */
+    padding: 0; /* Sin padding */
+            background: none; /* Sin fondo */
+}
+
 

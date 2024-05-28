@@ -9,13 +9,22 @@ export function Buscador(){
     const [disponibilidad, setDisponibilidad] = useState("todos")
     const {search} = useLocation()
     const navigate = useNavigate()
-    const handleSubmit = ()=>{
-        navigate("/search")
+    const handleSubmit = (event)=>{
+        console.log(window.location)
+        let paramsQuery = new URLSearchParams()
+        //Añadimos a la query de la búsqueda los parametros
+        paramsQuery.append("lugar-alojamiento", nomAlojamiento)
+        paramsQuery.append("disponibilidad", disponibilidad)
+        
+        let href = createSearchURL("/search", paramsQuery.toString())
+        navigate(href)
     }
     
+    const createSearchURL= (path, queryParams)=>{
+        return `${path}?${queryParams}`
+    }
 
     useEffect(() =>{
-        console.log(window.location)
         let paramsQuery = new URLSearchParams(search)
         let nomQuery = paramsQuery.get("lugar-alojamiento")
         let disponibilidadQuery = paramsQuery.get("disponibilidad")

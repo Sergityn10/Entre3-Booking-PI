@@ -24,27 +24,32 @@ import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
 import { EditarAlojamiento } from "./Views/User/EditarAlojamiento.jsx";
 import { HabitacionesAlojamiento } from "./Views/User/HabitacionesAlojamiento.jsx";
 
-
+ export const FavoritesContext = createContext({})
 export default function App(){
-    const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
+    const [listFavorites, setListFavorites] = useState([])
     useEffect(()=>{
         
     },[])
     return (
         <>
             <UserContextProvider>
+    <FavoritesContext.Provider value={{listFavorites, setListFavorites}}>
                 <BrowserRouter>
                     <Header />
                 
                     <Routes>
                         <Route path="/" element={<Index/>} />
+                    
+                    
                         <Route path="/search" element={<PagBusqueda/>} />
+                    
+                        
                         <Route path="/login" element={<LogIn />} /> 
                         <Route path="/signup" element={<SignUp/>} /> 
                         <Route path="/property/:idProperty" element={<DetailProperty/>}/>
 
-
                         <Route exact path ="/config" element={<Configuracion/>} />
+                        <Route exact path="/config/favorites" element={<MisFavoritos />} />
                         <Route path="/config/editUser" element={<EditUser />} />
                         <Route path="/config/favorites" element={<MisFavoritos />} />
                         <Route path="/config/mis-alojamientos" element={<MisAlojamientos />} />
@@ -53,6 +58,7 @@ export default function App(){
 
                     </Routes>
                 </BrowserRouter>
+                    </FavoritesContext.Provider>
             </UserContextProvider>    
         </>
     )
