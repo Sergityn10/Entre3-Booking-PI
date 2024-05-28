@@ -43,7 +43,8 @@ a {
 
 #main {
     display: flex;
-
+    flex-direction: row;
+    justify-content: space-between;
     margin-top: 48px;
     padding-left: 20%;
     padding-right: 20%;
@@ -57,6 +58,16 @@ a {
 #contenedor-central h1{
     margin-bottom: 20px;
     margin-top: 0;
+}
+
+#formulario-registro {
+    display: flex;
+    flex-direction: column;
+}
+
+#añadir-habitacion {
+    display: flex;
+    flex-direction: column;
 }
 
 label {

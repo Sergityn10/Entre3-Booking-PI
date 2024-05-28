@@ -1,5 +1,3 @@
-
-
 import axios, { formToJSON } from 'axios'
 
 //CAMBIAR PARA DESACTIVAR SSL
