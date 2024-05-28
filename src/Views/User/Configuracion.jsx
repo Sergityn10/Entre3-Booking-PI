@@ -45,7 +45,7 @@ export function Configuracion() {
                 <section className="card-perfil">
                     <h2>Mis reseñas</h2>
                     <p>Mira todas tus reseñas en alojamientos</p>
-                    <NavLink to="/">Ver mis reseñas</NavLink>
+                    <NavLink to="/config/reviews">Ver mis reseñas</NavLink>
                 </section>
             </div>
 
