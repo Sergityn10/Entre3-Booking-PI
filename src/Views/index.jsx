@@ -7,17 +7,37 @@ import UserContext from "../context/UserContext"
 import { NavLink } from "react-router-dom"
 import { useContext } from "react"
 export default function Index(){
-    const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
-   
-    useEffect(()=>{
+    const [userId, setUserId] = useState("");
+    const navigate = useNavigate();
+  
+    const handleInputChange = (e) => {
+      setUserId(e.target.value);
+    };
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if (userId) {
+        navigate(`/HabitacionesUsuario/${userId}`);
+      }
+    };
 
-    },[])
 
     return(
         <>
         
             <main>
-                <Buscador/>
+                <form onSubmit={handleSubmit}>
+                    <label>
+                    ID de Usuario:
+                    <input 
+                        type="number" 
+                        value={userId} 
+                        onChange={handleInputChange} 
+                        required 
+                    />
+                    </label>
+                    <button type="submit">Buscar</button>
+                </form>
             </main>
         </>
     )

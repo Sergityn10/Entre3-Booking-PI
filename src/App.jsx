@@ -23,6 +23,7 @@ import { MisFavoritos } from "./Views/User/MisFavoritos.jsx";
 import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
 import { EditarAlojamiento } from "./Views/User/EditarAlojamiento.jsx";
 import { HabitacionesAlojamiento } from "./Views/User/HabitacionesAlojamiento.jsx";
+import { HabitacionesUsuario } from "./Views/User/HabitacionesUsuario.jsx";
 
  export const FavoritesContext = createContext({})
 export default function App(){
@@ -55,6 +56,8 @@ export default function App(){
                         <Route path="/config/mis-alojamientos" element={<MisAlojamientos />} />
                         <Route path="/edit-property/:idProperty" element={<EditarAlojamiento/>}/>
                         <Route path="/habitaciones-alojamiento/:idProperty" element={<HabitacionesAlojamiento/>}/>
+
+                        <Route path="/HabitacionesUsuario/:userId" element={<HabitacionesUsuario />} />
 
                     </Routes>
                 </BrowserRouter>

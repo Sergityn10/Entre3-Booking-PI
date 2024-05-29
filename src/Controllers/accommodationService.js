@@ -10,6 +10,10 @@ const accommodationService = {
         const response = await axios.get(`${API_URL}accoms`)
         return response.data
     },
+    getNumAccommodationsByIdu: async (idu) => {
+        const response = await axios.get(`${API_URL}accoms/user/${idu}`)
+        return response.data
+    },
     getAccommodationsByIdp: async (idp) =>{
         const response = await axios.get(`${API_URL}accoms/props/${idp}`)
         return response.data
