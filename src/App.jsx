@@ -17,9 +17,9 @@ import { Configuracion } from "./Views/User/Configuracion.jsx"
 
 import { MisAlojamientos } from "./Views/User/MisAlojamientos.jsx";
 
-
+import { HabitacionesDisponibles } from "./Views/HabitacionesDisponibles.jsx";
 import { UserContextProvider } from "./context/UserContext.jsx";
-
+import { MisReviews } from "./Views/User/MisReviews.jsx";
 import { MisFavoritos } from "./Views/User/MisFavoritos.jsx";
 import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
 import { EditarAlojamiento } from "./Views/User/EditarAlojamiento.jsx";
@@ -46,6 +46,7 @@ export default function App(){
                         <Route path="/search" element={<PagBusqueda/>} />
                     
                         
+                        <Route path="/habs-disponibles" element={<HabitacionesDisponibles />} /> 
                         <Route path="/login" element={<LogIn />} /> 
                         <Route path="/signup" element={<SignUp/>} /> 
                         <Route path="/property/:idProperty" element={<DetailProperty/>}/>

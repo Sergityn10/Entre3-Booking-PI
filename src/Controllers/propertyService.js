@@ -10,6 +10,10 @@ const propertyService = {
         const response = await axios.get(`${API_URL}properties`);
         return response.data;
     },
+    getAllByDisponibilidad: async (available) =>{
+        const response = await axios.get(`${API_URL}properties/disponibilidad/${available}`);
+        return response.data;
+    },
     getProperty: async (idp)=>{
         const response = await axios.get(`${API_URL}properties/${idp}`);
         return response;
