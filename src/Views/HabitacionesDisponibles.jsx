@@ -27,7 +27,7 @@ export function HabitacionesDisponibles(){
         <main>
             {loading? null: <>
             <label  htmlFor="dips">Sin disponibilidad</label>
-            <input type="radio" name="disp" id="sin-disp" value="0" onInput={(e)=> setDisponibilidad(parseInt(e.target.value))} />
+            <input type="radio" name="disp" id="sin-disp" value="0" onInput={(e)=> setDisponibilidad(parseInt(e.target.value))}  />
 
             <label  htmlFor="dips">Con disponibilidad</label>
             <input type="radio" name="disp" id="con-disp" value="1" onInput={(e)=> setDisponibilidad(parseInt(e.target.value))}/>
