@@ -19,7 +19,7 @@ import { MisAlojamientos } from "./Views/User/MisAlojamientos.jsx";
 
 
 import { UserContextProvider } from "./context/UserContext.jsx";
-
+import { MisReviews } from "./Views/User/MisReviews.jsx";
 import { MisFavoritos } from "./Views/User/MisFavoritos.jsx";
 import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
 import { EditarAlojamiento } from "./Views/User/EditarAlojamiento.jsx";
