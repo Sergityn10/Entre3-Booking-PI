@@ -15,7 +15,7 @@ export function MisReviews(){
     useEffect(() =>{
         reviewService.getAllReviewsByUser(user.id).then((response)=>{
             setReviews(response)
-            console.log(response)
+            console.log(reviews)
         }).finally(setLoading(false))
         setLoading(false)
         

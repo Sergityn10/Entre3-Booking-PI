@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import userService from "../../Controllers/UserService"
+import Loading from "../Loading"
 import propertyService from "../../Controllers/propertyService"
 export function CardReview({review}){
     const[property,setProperty] = useState(null)
@@ -14,28 +15,30 @@ export function CardReview({review}){
         })
         userService.getUserByid(review.idu).then((response) =>{
             setUserReview(response)
-            console.log(response)
+            
         })
 
         } catch (error) {
             console.error(error)
-        }finally{
-            setLoading(false)
         }
+        setTimeout(()=>setLoading(false),2000)
+        
         
     },[])
     return(
         <section className="lugar-reserva">
          
-            {loading? null :
+            {loading? <Loading/> :
+
             <>
+                
                 <article className="valoracion">
 		                    <div className="user-grado">
                             <h4>{userReview.name}</h4>
 		                        <p>Valoración: {review.grade}</p>
 		                    </div>
 		                    <q>{review.review}</q>
-		                </article>
+		        </article>
 
             </>
             }

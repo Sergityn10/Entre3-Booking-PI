@@ -5,11 +5,11 @@ export function ListReviews({listReviews}){
     return (
         <>
             
-            {listReviews.map((review, index) => 
-            <>
+            {listReviews.map((review) => 
+            
                 
-                <CardReview review={review} key={index}/>
-            </> )}
+                <CardReview review={review} key={review.idp}/>
+             )}
         </>
     )
 }

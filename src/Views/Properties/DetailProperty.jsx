@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ReviewForm } from "../../Components/Forms/ReviewForm"
 import propertyService from "../../Controllers/propertyService"
-import "./../../css/detalleAlojamiento.css"
+
 export function DetailProperty(){
     const {idProperty} = useParams();
 
@@ -211,9 +211,12 @@ export function DetailProperty(){
                 </tbody>
             </table>
         </div>
-
-            <ReviewForm alojamiento={alojamiento}/>
-            </div>
+        
+            <section id="container-create-review">
+                <ReviewForm alojamiento={alojamiento}/>
+            </section>
+           
+        </div>
         </> 
         }
 
