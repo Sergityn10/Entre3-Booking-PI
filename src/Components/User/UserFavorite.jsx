@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-export function UserFavorite({ alojamiento }) {
+export function UserFavorite({ favorito }) {
 	
 	
 	return (
@@ -21,7 +21,7 @@ export function UserFavorite({ alojamiento }) {
 
 					<div className="precio-con-menu">
 
-						<form method="post" action="deleteFavoritePropertyUserServlet.do?idp=${alojamiento.id}">
+						<form method="post" >
 							<input className="menu" type="image" src="../../public/img/Iconos/delete.png" alt="" />
 						</form>
 

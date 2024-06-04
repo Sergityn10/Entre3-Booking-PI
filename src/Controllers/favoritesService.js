@@ -1,5 +1,6 @@
 import { constComunes } from "./constantesComunes"
 import axios from "axios"
+const API_URL = constComunes.URLAPI
 const path = "favorites"
 const favoritesService = {
     getAllFavoritesByUser: async (idu)=>{
