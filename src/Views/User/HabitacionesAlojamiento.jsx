@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import UserContext from "../../context/UserContext";
 import { useContext } from "react";
 import { Link, NavLink } from 'react-router-dom';
+import Loading from "../../Components/Loading";
 import './../../css/listaHabitaciones.css';
 import { useParams } from "react-router-dom";
 
@@ -21,21 +22,19 @@ export function HabitacionesAlojamiento() {
         accommodationService.getAccommodationsByIdp(idProperty)
         .then((response) =>{
             setListaHabitaciones(response)
-            console.log(response)
         })
 
         propertyService.getProperty(idProperty)
         .then((response) =>{
             setAlojamiento(response.data)
-            console.log(response)
         })
-
-        setLoading(false)
+        setTimeout(()=>setLoading(false),1000 )
+        
     }, [idProperty])
 
     return (
         <>
-            {loading? null : 
+            {loading? <Loading/> : 
                 <div className="container-reservas">
                     <section id="titulo">
                         <h2>Alojamiento: {alojamiento.name} - Habitaciones</h2>

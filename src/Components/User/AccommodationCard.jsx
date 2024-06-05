@@ -1,8 +1,8 @@
-
+import { NavLink } from "react-router-dom";
 export function AccommodationCard({ habitacion }) {
     return (
         <>
-           <div class="box-habitacion">
+           <div className="box-habitacion">
 	                <img  className="imagen-habitacion" src="/img/Alojamientos/hotelLujo.jpg" alt="img-habitacion"/>
 	                <section className="atributos">
 	                    <p className="nombre-hab">Nombre habitación: {habitacion.name}</p>

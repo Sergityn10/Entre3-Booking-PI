@@ -8,6 +8,11 @@ const reviewService = {
             const response = await axios.get(`${API_URL}${path}/user/${idu}`);
             return response.data;
       },
+      getAllREviewsByIdp: async (idp) =>{
+            const response = await axios.get(`${API_URL}${path}/property/${idp}`)
+            return response.data;
+      }
+      ,
       getReviewById: async (idp,idu)=>{
             const response = await axios.get(`${API_URL}${path}/${idp}/user/${idu}`);
             return response.data;

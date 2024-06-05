@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { ReviewForm } from "../../Components/Forms/ReviewForm"
+import { ListReviews } from "../../Components/Reviews/ListReviews"
+import Loading from "../../Components/Loading"
+import reviewService from "../../Controllers/reviewController"
 import propertyService from "../../Controllers/propertyService"
 
 export function DetailProperty(){
     const {idProperty} = useParams();
 
     const [alojamiento,setProperty] = useState()
+    const [reviews, setReviews] = useState([])
     const [loading, setLoading] = useState(true);
 
     
@@ -14,14 +18,18 @@ export function DetailProperty(){
         
         propertyService.getProperty(idProperty).then((response) =>{
             setProperty(response.data)
-            setLoading(false)
+            
         })
-              
+        reviewService.getAllREviewsByIdp(idProperty).then((response)=>{
+            setReviews(response)
+            console.log(response)
+        })
+        setTimeout(()=>setLoading(false),2000 )     
     }, [idProperty])
 
     return(
         <>
-        {loading ? null : <>
+        {loading ? <Loading/> : <>
             <div id="main">
 
                 <div id="enlace-secciones">
@@ -213,6 +221,8 @@ export function DetailProperty(){
         </div>
         
             <section id="container-create-review">
+                <h3>Reviews de usuarios sobre este alojamiento</h3>
+                <ListReviews listReviews={reviews}/>
                 <ReviewForm alojamiento={alojamiento}/>
             </section>
            

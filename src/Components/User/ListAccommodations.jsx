@@ -7,7 +7,7 @@ export function ListAccommodations({listPropertyAccomodations}){
     return (
         <>
             {listPropertyAccomodations.map( (accommodation) => 
-                <AccommodationCard habitacion={accommodation}/>
+                <AccommodationCard habitacion={accommodation} key={accommodation.id}/>
             )}
             
         </>
