@@ -17,7 +17,7 @@ export function DetailProperty(){
     useEffect(() =>{
         
         propertyService.getProperty(idProperty).then((response) =>{
-            setProperty(response.data)
+            setProperty(response)
             
         })
         reviewService.getAllREviewsByIdp(idProperty).then((response)=>{

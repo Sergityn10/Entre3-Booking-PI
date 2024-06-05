@@ -11,8 +11,11 @@ const reviewService = {
       getAllREviewsByIdp: async (idp) =>{
             const response = await axios.get(`${API_URL}${path}/property/${idp}`)
             return response.data;
-      }
-      ,
+      },
+      getAllReviews: async ()=>{
+            const response = await axios.get(`${API_URL}${path}`)
+            return response.data;
+      },
       getReviewById: async (idp,idu)=>{
             const response = await axios.get(`${API_URL}${path}/${idp}/user/${idu}`);
             return response.data;
@@ -25,8 +28,8 @@ const reviewService = {
             const response = await axios.put(`${API_URL}${path}/user/${idu}`, review);
             return response;
       },
-      deleteReview: async (idr)=>{
-            const response = await axios.delete(`${API_URL}${path}/${idr}`);
+      deleteReview: async (idp, idu)=>{
+            const response = await axios.delete(`${API_URL}${path}/user/${idu}/property/${idp}`);
             return response;
       }
 }

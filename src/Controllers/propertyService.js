@@ -11,7 +11,7 @@ const propertyService = {
     },
     getProperty: async (idp)=>{
         const response = await axios.get(`${API_URL}${path}/${idp}`);
-        return response;
+        return response.data;
     },
     getAllbyUser: async (idu) => {
         const response = await axios.get(`${API_URL}${path}/user/${idu}`);
