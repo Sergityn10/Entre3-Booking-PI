@@ -25,6 +25,7 @@ import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
 import { EditarAlojamiento } from "./Views/User/EditarAlojamiento.jsx";
 import { HabitacionesAlojamiento } from "./Views/User/HabitacionesAlojamiento.jsx";
 
+import { ReviewContextProvider } from "./context/ReviewContext.jsx";
  export const FavoritesContext = createContext({})
 export default function App(){
     const [listFavorites, setListFavorites] = useState([])
@@ -34,9 +35,11 @@ export default function App(){
     return (
         <>
             <UserContextProvider>
-    <FavoritesContext.Provider value={{listFavorites, setListFavorites}}>
+                        <FavoritesContext.Provider value={{listFavorites, setListFavorites}}>
+   
                 <BrowserRouter>
                     <Header />
+                    
                     
                 
                     <Routes>
@@ -53,7 +56,16 @@ export default function App(){
                         <Route exact path ="/config" element={<Configuracion/>} />
                         <Route exact path="/config/favorites" element={<MisFavoritos />} />
                         <Route path="/config/editUser" element={<EditUser />} />
-                        <Route path="/config/reviews" element={<MisReviews />} />
+                        
+                        <Route path="/config/reviews" element={
+                        <ReviewContextProvider >
+                            <MisReviews />
+                        </ReviewContextProvider>
+                        
+                        
+                        } />
+                        
+                        
                         
                         <Route path="/config/favorites" element={<MisFavoritos />} />
                         <Route path="/config/mis-alojamientos" element={<MisAlojamientos />} />
@@ -62,7 +74,8 @@ export default function App(){
 
                     </Routes>
                 </BrowserRouter>
-                    </FavoritesContext.Provider>
+                        </FavoritesContext.Provider>
+                    
             </UserContextProvider>    
         </>
     )

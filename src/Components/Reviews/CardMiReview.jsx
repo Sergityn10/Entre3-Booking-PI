@@ -39,6 +39,8 @@ export function CardMiReview ({review}){
                 } catch (error) {
                     console.error(error)
                     }
+            
+
     }
     
     return (
@@ -57,14 +59,13 @@ export function CardMiReview ({review}){
                     <section className="card">
                         <h5>Comentario:</h5>
                         <q>{review.review}</q>
-                        <h5>Comentado por:</h5>
-                        <p>{review.idu}</p>
+                        
                     </section>
 
                     <section className="buttons">
                         <NavLink className="boton-bg-azul" to={`/property/${property.id}`}>Editar review</NavLink>
-                        <button className="png-delete">
-                            <img src="../../public/img/Iconos/delete.png" alt="Eliminar review" onClick={handleDeleteReview}/>
+                        <button className="button-png">
+                            <img src="../../img/Iconos/delete.png" alt="Eliminar review" onClick={handleDeleteReview}/>
                         </button>
                     </section>
                 

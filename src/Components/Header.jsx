@@ -15,7 +15,7 @@ export default function Header(){
             setUser(JSONuser)
             setIsLoggedIn(true)
         }
-    },[])
+    },[setIsLoggedIn,setUser])
 
     const handleLogout = ()=>{
         window.localStorage.removeItem("LocalUser")

@@ -4,6 +4,7 @@ import favoritesService from "../../Controllers/favoritesService"
 import propertyService from "../../Controllers/propertyService"
 import { UserFavorite } from "../../Components/User/UserFavorite"
 import { FavoritesContext } from "../../App"
+import Loading from "../../Components/Loading"
 export function MisFavoritos(){
     const {user} = useContext(UserContext)
     const {listFavorites,setListFavorites} = useContext(FavoritesContext)
@@ -11,13 +12,16 @@ export function MisFavoritos(){
     const [loading, setLoading] = useState(true)
     useEffect(() => {
         favoritesService.getAllFavoritesByUser(user.id).then((response) => {
-        let props = []
+        
             
-            response.map((prop) => propertyService.getProperty(prop.idp).then((res) => props.push(res.data)))
-            setFavorites(props)
             
+            setFavorites(response)
+            
+           
         })
         setLoading(false)
+        
+        
     },[])
     return (
         <>
@@ -26,9 +30,9 @@ export function MisFavoritos(){
                 <section id="reservas"> 
                     <h2>Tus alojmientos guardados</h2>
                 </section>
-        {loading? null :
+        {loading ? <Loading/> :
         
-              <>{favorites.map((prop,index)=> <UserFavorite key={index} alojamiento={prop}/>)}</>  
+              <>{favorites.map((prop,index)=> <UserFavorite key={index} favorito={prop}/>)}</>  
 
             
         }

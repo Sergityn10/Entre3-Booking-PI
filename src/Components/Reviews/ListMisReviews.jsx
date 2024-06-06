@@ -6,7 +6,7 @@ import { useNavigate} from "react-router-dom";
 import { NavLink } from "react-router-dom";
 export function ListMisReviews({listReviews}){
     
-    const [reviews, setReviews] = useState([]);
+    
     const [loading, setLoading] = useState(false);
 
     return (

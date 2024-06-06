@@ -1,14 +1,13 @@
 
-import React, { useEffect, useState } from "react"
-import { useContext } from "react";
+import React, { useEffect, useState, useContext } from "react"
 import UserContext from "../../context/UserContext";
 import reviewService from "../../Controllers/reviewController";
 import propertyService from "../../Controllers/propertyService";
 import { ListMisReviews } from "../../Components/Reviews/ListMisReviews";
 import Loading from "../../Components/Loading";
-
+import ReviewContext from "../../context/ReviewContext";
 export function MisReviews(){
-    const[reviews, setReviews] = useState([])
+    const{reviews, setReviews} = useContext(ReviewContext)
     
     const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
     const [loading, setLoading] = useState(true);
