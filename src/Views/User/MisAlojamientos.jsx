@@ -12,7 +12,7 @@ export function MisAlojamientos() {
     const [listaPropiedades, setListaPropiedades] = useState([])
 
     useEffect(() =>{
-        propertyService.getAllProperties()
+        propertyService.getAllbyUser(user.id)
         .then((response) =>{
             setListaPropiedades(response)
             console.log(response)
