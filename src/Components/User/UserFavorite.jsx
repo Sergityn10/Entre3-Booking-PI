@@ -19,6 +19,7 @@ export function UserFavorite({ favorito }) {
 	},[])
 
 	const handleDelete = ()=>{
+		setLoading(true)
 		favoritesService.deleteFavorite(favorito.idu, favorito.idp)
 	}
 	

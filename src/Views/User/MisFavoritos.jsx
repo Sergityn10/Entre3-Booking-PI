@@ -3,11 +3,11 @@ import { useContext, useEffect, useState } from "react"
 import favoritesService from "../../Controllers/favoritesService"
 import propertyService from "../../Controllers/propertyService"
 import { UserFavorite } from "../../Components/User/UserFavorite"
-import { FavoritesContext } from "../../App"
+import FavoriteContext from "../../context/FavoriteContext"
 import Loading from "../../Components/Loading"
 export function MisFavoritos(){
     const {user} = useContext(UserContext)
-    const {listFavorites,setListFavorites} = useContext(FavoritesContext)
+    const {propsFavorites,setPropsFavorites} = useContext(FavoriteContext)
     const [favorites, setFavorites] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {

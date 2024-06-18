@@ -24,9 +24,11 @@ import { MisFavoritos } from "./Views/User/MisFavoritos.jsx";
 import { DetailProperty } from "./Views/Properties/DetailProperty.jsx";
 import { EditarAlojamiento } from "./Views/User/EditarAlojamiento.jsx";
 import { HabitacionesAlojamiento } from "./Views/User/HabitacionesAlojamiento.jsx";
-
+import { ShoppingCartContextProvider } from "./context/ShoppingCartContext.jsx";
 import { ReviewContextProvider } from "./context/ReviewContext.jsx";
- export const FavoritesContext = createContext({})
+import { FavoriteContextProvider } from "./context/FavoriteContext.jsx";
+import { ShoppingCart } from "./Views/User/ShoppingCart.jsx";
+ 
 export default function App(){
     const [listFavorites, setListFavorites] = useState([])
     useEffect(()=>{
@@ -35,8 +37,8 @@ export default function App(){
     return (
         <>
             <UserContextProvider>
-                        <FavoritesContext.Provider value={{listFavorites, setListFavorites}}>
-   
+                        <FavoriteContextProvider>
+                        <ShoppingCartContextProvider>
                 <BrowserRouter>
                     <Header />
                     
@@ -68,13 +70,20 @@ export default function App(){
                         
                         
                         <Route path="/config/favorites" element={<MisFavoritos />} />
+                        <Route path="/shoppingCart" element={
+                            
+                                <ShoppingCart />
+                            
+                            
+                            }/>
                         <Route path="/config/mis-alojamientos" element={<MisAlojamientos />} />
                         <Route path="/edit-property/:idProperty" element={<EditarAlojamiento/>}/>
                         <Route path="/habitaciones-alojamiento/:idProperty" element={<HabitacionesAlojamiento/>}/>
 
                     </Routes>
                 </BrowserRouter>
-                        </FavoritesContext.Provider>
+                </ShoppingCartContextProvider>
+                        </FavoriteContextProvider>
                     
             </UserContextProvider>    
         </>

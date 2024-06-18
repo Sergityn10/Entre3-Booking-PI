@@ -5,12 +5,14 @@ import { ListReviews } from "../../Components/Reviews/ListReviews"
 import Loading from "../../Components/Loading"
 import reviewService from "../../Controllers/reviewController"
 import propertyService from "../../Controllers/propertyService"
-
+import accommodationService from "../../Controllers/accommodationService"
+import { ReserveAccommodation } from "../../Components/Properties/ReserveAccommodation"
 export function DetailProperty(){
     const {idProperty} = useParams();
 
     const [alojamiento,setProperty] = useState()
     const [reviews, setReviews] = useState([])
+    const [accommodations, setAccommodations] = useState([])
     const [loading, setLoading] = useState(true);
 
     
@@ -22,6 +24,10 @@ export function DetailProperty(){
         })
         reviewService.getAllREviewsByIdp(idProperty).then((response)=>{
             setReviews(response)
+            console.log(response)
+        })
+        accommodationService.getAccommodationsByIdp(idProperty).then((response)=>{
+            setAccommodations(response)
             console.log(response)
         })
         setTimeout(()=>setLoading(false),2000 )     
@@ -169,55 +175,7 @@ export function DetailProperty(){
                 <h2>Disponibilidad</h2>
                 <a href="">Igualamos el precio</a>
                 </div>
-            <table className="hotel-table">
-                <thead>
-                    <tr>
-                        <th>Tipo de habitación</th>
-                        <th>Número de personas</th>
-                        <th>Descripción</th>
-                        <th>Precio</th>
-                        <th>Reservar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td className="nombre-hab">Individual</td>
-                        <td><span><svg viewBox="0 0 128 128" width="1em" height="1em">
-                            <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
-                            </svg></span></td>
-                        <td>Habitación con 1 única cama individual</td>
-                        <td>150 €</td>
-                        <td><button className="boton-hab">Reservar</button></td>
-                    </tr>
-                    <tr>
-                        <td className="nombre-hab">Doble</td>
-                        <td><span><svg viewBox="0 0 128 128" width="1em" height="1em">
-                            <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
-                            </svg></span>
-                            <span><svg viewBox="0 0 128 128" width="1em" height="1em">
-                                <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
-                                </svg></span></td>
-                        <td>Habitación con 1 cama doble o 2 camas individuales</td>
-                        <td>250 €</td>
-                        <td><button className="boton-hab">Reservar</button></td>
-                    </tr>
-                    <tr>
-                        <td className="nombre-hab">Familiar</td>
-                        <td><span><svg viewBox="0 0 128 128" width="1em" height="1em">
-                            <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
-                            </svg></span>
-                            <span><svg viewBox="0 0 128 128" width="1em" height="1em">
-                                <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
-                                </svg></span>
-                            + <span><svg viewBox="0 0 128 128" width="1em" height="1em">
-                                <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
-                                </svg></span></td>
-                        <td>Habitación con 1 cama doble + 1 cama individual</td>
-                        <td>400 €</td>
-                        <td><button className="boton-hab">Reservar</button></td>
-                    </tr>
-                </tbody>
-            </table>
+           <ReserveAccommodation accommodations={accommodations}/>
         </div>
         
             <section id="container-create-review">

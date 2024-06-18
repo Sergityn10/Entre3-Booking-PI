@@ -5,9 +5,9 @@ import favoritesService from "../../Controllers/favoritesService"
 import './../../css/listaAlojamientos.css'
 import UserContext from "../../context/UserContext"
 import { useContext } from "react"
-import { FavoritesContext } from "../../App"
+import FavoriteContext from "../../context/FavoriteContext"
 export function ListProperty({listProperties}){
-    const {listFavorites,setListFavorites} = useContext(FavoritesContext)
+    const {listFavorites,setListFavorites} = useContext(FavoriteContext)
     const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
     
 
