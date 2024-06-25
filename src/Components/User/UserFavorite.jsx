@@ -21,6 +21,7 @@ export function UserFavorite({ favorito }) {
 	const handleDelete = ()=>{
 		setLoading(true)
 		favoritesService.deleteFavorite(favorito.idu, favorito.idp)
+		.catch((erro) => console.error(erro)).finally(setLoading(false))
 	}
 	
 	return (

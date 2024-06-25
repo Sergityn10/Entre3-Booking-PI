@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import ShoppingCartContext from "../../context/ShoppingCartContext"
 import bookingService from "../../Controllers/bookinService"
+import { json } from "react-router-dom"
 
 
 export function RowBookAccom({accom}){
@@ -12,9 +13,10 @@ export function RowBookAccom({accom}){
             idacc:accom.id,
             numAccommodations:numBooks
         }
+        let newBooks = [...books, book]
+        setBooks(newBooks)
         
-        setBooks([...books, book])
-        
+        localStorage.setItem("ShoppingCart", JSON.stringify(newBooks))
     }
 
     return(

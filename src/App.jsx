@@ -28,6 +28,7 @@ import { ShoppingCartContextProvider } from "./context/ShoppingCartContext.jsx";
 import { ReviewContextProvider } from "./context/ReviewContext.jsx";
 import { FavoriteContextProvider } from "./context/FavoriteContext.jsx";
 import { ShoppingCart } from "./Views/User/ShoppingCart.jsx";
+import { PaymentSite } from "./Views/User/PaymentSite.jsx";
  
 export default function App(){
     const [listFavorites, setListFavorites] = useState([])
@@ -56,6 +57,7 @@ export default function App(){
                         <Route path="/property/:idProperty" element={<DetailProperty/>}/>
 
                         <Route exact path ="/config" element={<Configuracion/>} />
+                        <Route path="/payment" element={<PaymentSite/>}/>
                         <Route exact path="/config/favorites" element={<MisFavoritos />} />
                         <Route path="/config/editUser" element={<EditUser />} />
                         

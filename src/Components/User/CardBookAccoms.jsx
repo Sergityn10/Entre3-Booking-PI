@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import propertyService from "../../Controllers/propertyService"
 import accommodationService from "../../Controllers/accommodationService"
 import Loading from "../Loading"
-export function CardBookAccoms({book}){
+export function CardBookAccoms({index, book,shopCart, setBooks}){
     const [accom, setAccom] = useState(null)
     const [property, setProperty] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -25,6 +25,18 @@ export function CardBookAccoms({book}){
         
     },[])
 
+    const handleDeleteBook = ()=>{
+        //delete book from the shopping Cart
+        //Creamos una copia de la actual carrito
+        let newShopCart = [...shopCart]
+        //Eliminamos la reserva elegida de la copia de Carrito
+        newShopCart.splice(index,1)
+        //Actualizamos el estado de nuestro Contexto de Carrito
+        setBooks(newShopCart)
+        //Actualizamos tambien la cookie que tiene almacenada nuestras reservas
+        localStorage.setItem("ShoppingCart", JSON.stringify(newShopCart))
+    }
+
     return (
         <>
             {
@@ -38,17 +50,14 @@ export function CardBookAccoms({book}){
                     <section className="info-lugar-reserva">
 
                         <h5 className="nom-lugar-strong">{property.name}</h5>
-                        {property.available === 1 ? (
-                            <p>DISPONIBLE</p>
-                        ) : (
-                            <p>NO DISPONIBLE</p>
-                        )}
+                        <p>{accom.name}</p>
+                        <p>{book.numAccommodations}</p>
                     </section>
 
                     <div className="precio-con-menu">
                         
                         
-                        <input className="menu" type="image" src="../../public/img/Iconos/delete.png" alt="" />
+                        <input className="menu" type="image" src="../../public/img/Iconos/delete.png" alt="" onClick={handleDeleteBook} />
                     </div>
                 </div>
             </section>
