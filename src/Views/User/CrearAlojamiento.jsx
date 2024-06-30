@@ -1,118 +1,97 @@
+import React from "react";
 import propertyService from "../../Controllers/propertyService";
 import { useNavigate } from "react-router-dom";
+import UserContext from "../../context/UserContext";
+import { useContext } from "react";
 
-export function EditPropertyForm({ alojamiento }) {
+export const CrearAlojamiento = () => {
 	const navigate = useNavigate();
 	const handleNavigate = () => {
 		navigate("/config/mis-alojamientos");
 	};
-	const updateProperty = (e) => {
+
+	const { user, setUser, isLoggedIn, setIsLoggedIn } =
+		useContext(UserContext);
+	const idu = user.id;
+
+	const createProperty = (e) => {
 		e.preventDefault();
-		console.log("Actualizando alojamiento");
+		console.log("Creando nuevo alojamiento");
 		const property = {
-			id: alojamiento.id,
 			name: document.getElementById("nombre").value,
+			idu: idu,
 			city: document.getElementById("ciudad").value,
 			address: document.getElementById("direccion").value,
 			telephone: document.getElementById("telefono").value,
 			centerDistance: document.getElementById("distancia").value,
 			gradesAverage: document.getElementById("valoracion").value,
 			description: document.getElementById("descripcion").value,
-			idu: alojamiento.idu,
-			available: document.getElementById("disponibilidad").value,
+			available: document.getElementById("disponibilidad").value ? 1 : 0,
+			petFriendly: document.querySelector(
+				'input[name="mascotas"]:checked'
+			).value
+				? 1
+				: 0,
+			// Aquí puedes añadir otros campos necesarios para la creación de un nuevo alojamiento
 		};
 
-		propertyService.updateProperty(property).then((response) => {
+		propertyService.createProperty(property).then((response) => {
+			// Navigate to /config/mis-alojamientos without recharging the page, using react-router
 			handleNavigate();
 		});
 	};
 
 	return (
 		<form id="formulario-registro" action="" method="post">
-			<h1>Edición Alojamiento</h1>
+			<h1>Crear Alojamiento</h1>
 
 			<label htmlFor="nombre">
 				<span>Nombre del Alojamiento</span>
 			</label>
 			<br />
-			<input
-				type="text"
-				id="nombre"
-				name="nombre"
-				defaultValue={alojamiento.name}
-			/>
+			<input type="text" id="nombre" name="nombre" />
 			<br />
 
-			<label htmlhtmlFor="ciudad">
+			<label htmlFor="ciudad">
 				<span>Ciudad</span>
 			</label>
 			<br />
-			<input
-				type="text"
-				id="ciudad"
-				name="ciudad"
-				defaultValue={alojamiento.city}
-			/>
+			<input type="text" id="ciudad" name="ciudad" />
 			<br />
 
-			<label htmlhtmlFor="direccion">
+			<label htmlFor="direccion">
 				<span>Dirección</span>
 			</label>
 			<br />
-			<input
-				type="text"
-				id="direccion"
-				name="direccion"
-				defaultValue={alojamiento.address}
-			/>
+			<input type="text" id="direccion" name="direccion" />
 			<br />
 
 			<label htmlFor="telefono">
 				<span>Teléfono</span>
 			</label>
 			<br />
-
-			<input
-				type="tel"
-				id="telefono"
-				name="telefono"
-				defaultValue={alojamiento.telephone}
-			/>
+			<input type="tel" id="telefono" name="telefono" />
 			<br />
 
 			<label htmlFor="distancia">
 				<span>Distancia al centro (metros)</span>
 			</label>
 			<br />
-			<input
-				type="number"
-				id="distancia"
-				name="distancia"
-				defaultValue={alojamiento.centerDistance}
-			/>
+			<input type="number" id="distancia" name="distancia" />
 			<br />
 
 			<label htmlFor="valoracion">
 				<span>Valoración media</span>
 			</label>
 			<br />
-			<input
-				type="number"
-				id="valoracion"
-				name="valoracion"
-				step="0.1"
-				defaultValue={alojamiento.gradesAverage}
-			/>
+			<input type="number" id="valoracion" name="valoracion" step="0.1" />
 			<br />
 
 			<label htmlFor="descripcion">
 				<span>Descripción</span>
 			</label>
 			<br />
-
-			<textarea id="descripcion" name="descripcion">
-				{alojamiento.description}
-			</textarea>
+			<textarea id="descripcion" name="descripcion"></textarea>
 			<br />
 
 			<div id="servicios">
@@ -167,15 +146,15 @@ export function EditPropertyForm({ alojamiento }) {
 					type="hidden"
 					id="disponibilidad"
 					name="disponibilidad"
-					defaultValue={alojamiento.available}
+					value="true"
 				/>
 			</div>
 
 			<input
 				type="submit"
-				value="Confirmar cambios"
-				onClick={updateProperty}
+				value="Crear Alojamiento"
+				onClick={createProperty}
 			/>
 		</form>
 	);
-}
+};

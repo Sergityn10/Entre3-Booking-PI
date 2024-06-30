@@ -20,7 +20,8 @@ export function EditarAlojamiento(){
         })
     }, [idProperty])
 
-    
+    if (!alojamiento) return (<h1>Cargando...</h1>);
+    else    
     return(
         <>
             {loading? null : 

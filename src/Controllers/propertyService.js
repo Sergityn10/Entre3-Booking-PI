@@ -30,7 +30,7 @@ const propertyService = {
         return response.data;
     },
     deleteProperty: async (idp) =>{
-        const response = await axios.delete(`${API_URL}${path}/${idp}`);
+        const response = await axios.delete(`${API_URL}${path}/property/${idp}`);
         return response;
     }
 }
