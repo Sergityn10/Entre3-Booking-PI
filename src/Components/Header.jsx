@@ -21,7 +21,7 @@ export default function Header(){
         window.localStorage.removeItem("LocalUser")
         setUser(null)
         setIsLoggedIn(false)
-
+    navigate("/")
     }
     
     return (

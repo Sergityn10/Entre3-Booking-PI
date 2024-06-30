@@ -28,7 +28,7 @@ export function MisFavoritos(){
         <main>
             <div className="container-config">
                 <section id="reservas"> 
-                    <h2>Tus alojmientos guardados</h2>
+                    <h2>Tus alojamientos guardados</h2>
                 </section>
         {loading ? <Loading/> :
         

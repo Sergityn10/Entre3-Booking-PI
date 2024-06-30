@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Buscador } from "../Components/Buscador"
 import { ListProperty } from "../Components/Properties/listProperty"
 import propertyService from "../Controllers/propertyService"
 import { useLocation, useParams } from "react-router-dom"
+import FavoriteContext from "../context/FavoriteContext"
 export function PagBusqueda(){
     const [properties,setProperties] = useState([])
-    const [listFavorites, setListFavorites] = useState([])
+    const {propsFavorites, setPropsFavorites}= useContext(FavoriteContext)
     
     const {search} = useLocation()
     const query = new URLSearchParams(search)
@@ -24,7 +25,7 @@ export function PagBusqueda(){
         <Buscador/>
         <main>
             
-            <ListProperty listProperties={properties}/>
+            <ListProperty listProperties={properties} listFavorites={propsFavorites} setFavorites={setPropsFavorites}/>
         </main>
            
         </>

@@ -4,10 +4,14 @@ import { NavLink } from "react-router-dom"
 import UserContext from "../../context/UserContext"
 import { useContext, useEffect, useState } from "react"
 import favoritesService from "../../Controllers/favoritesService"
+import FavoriteContext from "../../context/FavoriteContext"
 export function CardProperty({alojamiento}){
-    const {user, setUser,isLoggedIn,setIsLoggedIn,listFavorites, setListFavorites} = useContext(UserContext)
+    const {propsFavorites, setPropsFavorites} = useContext(FavoriteContext)
+    const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
     
 const [isFavorite, setIsFavorite] = useState(false)
+
+    
     const handleFavorite =()=>{
         
         if(!isFavorite){
@@ -17,16 +21,16 @@ const [isFavorite, setIsFavorite] = useState(false)
        
         }
         else{
-           
-                setIsFavorite(false)
+           favoritesService.deleteFavorite(user.id, alojamiento.id)
+            setIsFavorite(false)
             
         }
         
     }
     useEffect(() =>{
-        if(listFavorites.includes(alojamiento))
-            setIsFavorite(true)
-    },[])
+       const isFavorite = propsFavorites.find((favorite)=> favorite.idp === alojamiento.id)
+        setIsFavorite(isFavorite ? true : false)
+    },[alojamiento.id, propsFavorites])
 
     
     return (

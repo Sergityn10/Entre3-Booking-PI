@@ -9,9 +9,7 @@ import { useContext } from "react"
 export default function Index(){
     const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
    
-    useEffect(()=>{
 
-    },[])
 
     return(
         <>

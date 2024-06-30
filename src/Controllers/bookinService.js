@@ -6,8 +6,8 @@ import { constComunes } from './constantesComunes'
 const API_URL = constComunes.URLAPI
 const path = "books"
 const bookingService = {
-    getBookings: async () => {
-        const response = await axios.get(`${API_URL}${path}`)
+    getBookingsByIdu: async (idu) => {
+        const response = await axios.get(`${API_URL}${path}/user/${idu}`)
         return response.data
     },
     getBookByIdb: async (idb) => {

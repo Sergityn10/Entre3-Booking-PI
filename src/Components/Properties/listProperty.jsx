@@ -6,14 +6,14 @@ import './../../css/listaAlojamientos.css'
 import UserContext from "../../context/UserContext"
 import { useContext } from "react"
 import FavoriteContext from "../../context/FavoriteContext"
-export function ListProperty({listProperties}){
-    const {listFavorites,setListFavorites} = useContext(FavoriteContext)
+export function ListProperty({listProperties, listFavorites, setFavorites}){
+    
     const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
     
 
     useEffect(()=>{
         if(user){
-            favoritesService.getAllFavoritesByUser(user.id).then((response) => setListFavorites(response))
+            favoritesService.getAllFavoritesByUser(user.id).then((response) => setFavorites(response))
         }
     },[])
 

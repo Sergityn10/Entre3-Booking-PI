@@ -4,16 +4,15 @@ import { createContext } from "react";
 const ShoppingCartContext = createContext({})
 export function ShoppingCartContextProvider({children}){
     const [books, setBooks] = useState([]);
+    const [totalNumAccoms, setTotalNumAccoms] = useState(0)
     const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
-        const storedBooks = localStorage.getItem('ShoppingCart');
-        if(storedBooks){
-            setBooks(JSON.parse(storedBooks));
-            }
-    },[])
+        let numAccoms = books.reduce((total, book)=> total+ parseInt(book.numAccommodations),0)
+        setTotalNumAccoms(numAccoms)
+    },[books])
 
-    return <ShoppingCartContext.Provider value={{books, setBooks}}>
+    return <ShoppingCartContext.Provider value={{books, setBooks, totalNumAccoms, setTotalNumAccoms}}>
         {children}
     </ShoppingCartContext.Provider>
 

@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
-import Header from "./Components/Header";
-import React, { createContext, useEffect, useContext } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { use, Suspense } from "react";
-import { useState } from "react";
-import Loading from "./Components/Loading";
+import Header from "./Components/Header"
+import React, { createContext, useEffect, useContext } from "react"
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+
+import {use, Suspense } from "react"
+import { useState } from "react"
+import Loading from "./Components/Loading"
+
 import { LogIn } from "./Views/login.jsx";
 import { PagBusqueda } from "./Views/search.jsx";
 import Index from "./Views/index.jsx";
@@ -13,9 +15,11 @@ import UserContext from "./context/UserContext.jsx";
 import { SignUp } from "./Views/signup.jsx";
 
 import { EditUser } from "./Components/User/EditUser.jsx";
+
 import { Configuracion } from "./Views/User/Configuracion.jsx";
 
 import { MisAlojamientos } from "./Views/User/MisAlojamientos.jsx";
+
 
 import { UserContextProvider } from "./context/UserContext.jsx";
 import { MisReviews } from "./Views/User/MisReviews.jsx";
@@ -28,6 +32,7 @@ import { ReviewContextProvider } from "./context/ReviewContext.jsx";
 import { FavoriteContextProvider } from "./context/FavoriteContext.jsx";
 import { ShoppingCart } from "./Views/User/ShoppingCart.jsx";
 import { PaymentSite } from "./Views/User/PaymentSite.jsx";
+import { MisReservas } from "./Views/User/MisReservas.jsx";
 import { CrearAlojamiento } from "./Views/User/CrearAlojamiento.jsx";
 import { EliminarAlojamiento } from "./Views/User/EliminarAlojamiento.jsx";
 import { AddAcomodation } from "./Views/User/AddAcomodation.jsx";
@@ -130,6 +135,7 @@ export default function App() {
                                     path="/add-acomodation/:idp"
                                     element={<AddAcomodation />}
                                 />
+								<Route path="/config/bookings" element={<MisReservas/>}/>
 
 
 							</Routes>
@@ -139,4 +145,9 @@ export default function App() {
 			</UserContextProvider>
 		</>
 	);
+
+
+ 
+
+
 }

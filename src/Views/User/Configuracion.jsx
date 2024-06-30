@@ -39,7 +39,7 @@ export function Configuracion() {
                 <section className="card-perfil">
                     <h2>Mis reservas</h2>
                     <p>Recuerda y revisa tus reservas realizadas</p>
-                    <NavLink to="/">Ver mis reservas</NavLink>
+                    <NavLink to="/config/bookings">Ver mis reservas</NavLink>
                 </section>
                 
                 <section className="card-perfil">

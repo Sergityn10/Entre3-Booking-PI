@@ -1,22 +1,29 @@
 {
-  "name": "app",
+
+  "name": "copia-entrega3-pi",
+  "homepage": "http://booking-entr3.com/app/",
+  "version": "0.1.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "start": "react-scripts start --host 0.0.0.0",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
   "dependencies": {
-    "axios": "^1.6.8",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "joi": "^17.13.3",
     "react": "^18.3.1",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.0",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.0",
     "react-scripts": "^5.0.1",
-    "yarn": "^1.22.22"
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start --host 0.0.0.0",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
@@ -29,7 +36,6 @@
     "vite": "^5.2.0",
     "vitest": "^1.6.0"
   },
-  "homepage": "http://booking-entr3.com/app/",
   "browserslist": {
     "production": [
       ">0.2%",

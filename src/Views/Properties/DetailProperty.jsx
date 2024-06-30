@@ -3,13 +3,16 @@ import { useParams } from "react-router-dom"
 import { ReviewForm } from "../../Components/Forms/ReviewForm"
 import { ListReviews } from "../../Components/Reviews/ListReviews"
 import Loading from "../../Components/Loading"
+import './../../css/detalleAlojamiento.css'
 import reviewService from "../../Controllers/reviewController"
 import propertyService from "../../Controllers/propertyService"
 import accommodationService from "../../Controllers/accommodationService"
 import { ReserveAccommodation } from "../../Components/Properties/ReserveAccommodation"
+import { useContext } from "react"
+import ShoppingCartContext from "../../context/ShoppingCartContext"
 export function DetailProperty(){
     const {idProperty} = useParams();
-
+    const {books, setBooks} = useContext(ShoppingCartContext)
     const [alojamiento,setProperty] = useState()
     const [reviews, setReviews] = useState([])
     const [accommodations, setAccommodations] = useState([])
@@ -30,6 +33,7 @@ export function DetailProperty(){
             setAccommodations(response)
             console.log(response)
         })
+        setBooks([])
         setTimeout(()=>setLoading(false),2000 )     
     }, [idProperty])
 
@@ -109,7 +113,7 @@ export function DetailProperty(){
                 </div>
                 <div id="info-superior">
                         <span id="direccion">{alojamiento.address} - <a href="">Ubicación Excelente - Ver Mapa</a></span>
-                        <span id="valoracion">8,6</span>
+                        <span id="valorAvern">{alojamiento.gradesAverage}</span>
 
                 </div>
                 <div id="grid-fotos">

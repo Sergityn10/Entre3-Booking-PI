@@ -11,8 +11,8 @@ export function ListOwnProperties({listOwnProperties}){
    
     return (
         <>
-            {listOwnProperties.map( (property) => 
-                <MyProperty alojamiento={property}/>
+            {listOwnProperties.map( (property, index) => 
+                <MyProperty key={index} alojamiento={property}/>
             )}
             
         </>
