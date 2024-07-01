@@ -32,7 +32,7 @@ export function MisFavoritos(){
                 </section>
         {loading ? <Loading/> :
         
-              <>{propsFavorites.map((prop,index)=> <UserFavorite key={index} favorito={prop}/>)}</>  
+              <>{propsFavorites.map((prop,index)=> <UserFavorite key={prop.idp} index={index} favorito={prop}/>)}</>  
 
             
         }

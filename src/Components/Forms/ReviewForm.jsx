@@ -38,7 +38,7 @@ export function ReviewForm({alojamiento, setListReviews}){
             reviewService.getAllREviewsByIdp(alojamiento.id).then((resp)=> setListReviews(resp))
             setLoading(false) 
             })
-        
+        window.reload()
     }
 
     useEffect(()=>{

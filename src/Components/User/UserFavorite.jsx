@@ -8,7 +8,10 @@ import { NavLink } from "react-router-dom"
 import { useContext } from "react"
 import UserContext from "../../context/UserContext"
 import FavoriteContext from "../../context/FavoriteContext"
-export function UserFavorite({ favorito }) {
+
+
+export function UserFavorite({ favorito, index }) {
+	
 	const {user} = useContext(UserContext)
 	const {propsFavorites,setPropsFavorites} = useContext(FavoriteContext)
 	const [alojamiento, setAlojamiento] = useState(null)
@@ -22,18 +25,22 @@ export function UserFavorite({ favorito }) {
 		setLoading(false)
 	},[])
 
-	const handleDelete = async ()=>{
-		setLoading(true)
-		try {
+	const handleDelete = ()=>{
+		
+		
 			
-		favoritesService.deleteFavorite(favorito.idu, favorito.idp)
-		} catch (error) {
-			console.error(error)
-		}
-		finally{
-			favoritesService.getAllFavoritesByUser(user.id).then((response)=> setPropsFavorites(response))
-			setLoading(false)
-		}
+		favoritesService.deleteFavorite(favorito.idu, favorito.idp).then((response)=>{
+			favoritesService.getAllFavoritesByUser(user.id).then((resp)=>{
+				setPropsFavorites(resp)
+			})
+			
+		})
+		
+		
+			
+			
+		
+		
 			
 	}
 	

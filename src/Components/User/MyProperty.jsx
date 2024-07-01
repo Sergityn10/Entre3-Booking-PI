@@ -2,9 +2,13 @@ import { NavLink } from "react-router-dom";
 import propertyService from "../../Controllers/propertyService";
 export function MyProperty({ alojamiento }) {
 	const changeAvailable = ()=>{
-
+		var newAlojamiento ={...alojamiento}
+		if(alojamiento.available ===1 )
+		newAlojamiento.available = 0
+		else newAlojamiento.available = 1
+		propertyService.updateProperty(newAlojamiento)
 		
-		propertyService.changeDisponibility(alojamiento)
+		window.reload()
 	}
     return (
 		<>

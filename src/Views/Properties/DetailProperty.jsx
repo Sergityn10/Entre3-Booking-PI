@@ -33,6 +33,10 @@ export function DetailProperty(){
             setAccommodations(response)
             console.log(response)
         })
+        reviewService.getAllReviewsByUser(user.id).then((response)=>{
+            setReviews(response)
+            
+        }).finally(setLoading(false))
         setBooks([])
         setTimeout(()=>setLoading(false),2000 )     
     }, [idProperty])
