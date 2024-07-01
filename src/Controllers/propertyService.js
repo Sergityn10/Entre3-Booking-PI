@@ -21,6 +21,11 @@ const propertyService = {
         const response = await axios.get(`${API_URL}${path}/search${query}`);
         return response.data;
     },
+    changeDisponibility: async(property)=>{
+        const response = await axios.put(`${API_URL}${path}/disp`, property);
+        return response;
+    }
+    ,
     createProperty: async (property) =>{
         const response = await axios.post(`${API_URL}${path}`, property);
         return response.data;

@@ -2,7 +2,8 @@ import { useEffect, useState } from "react"
 import reviewService from "../../Controllers/reviewController"
 import UserContext from "../../context/UserContext"
 import { useContext } from "react"
-export function ReviewForm({alojamiento}){
+import Loading from "../Loading"
+export function ReviewForm({alojamiento, setListReviews}){
     const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
     const [review, setReview] = useState({})
     const [rating, setRating] = useState(0)
@@ -33,8 +34,9 @@ export function ReviewForm({alojamiento}){
         })
         .catch((err) => setErrors(err))
         .finally(()=>{
+
+            reviewService.getAllREviewsByIdp(alojamiento.id).then((resp)=> setListReviews(resp))
             setLoading(false) 
-            
             })
         
     }
@@ -55,7 +57,7 @@ export function ReviewForm({alojamiento}){
 
     return(
         <>
-        {loading? null : 
+        {loading? <Loading/> : 
             <>
                 <h2>Review Form</h2>
                 <form onSubmit={handleReview} >

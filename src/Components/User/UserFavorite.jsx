@@ -5,11 +5,15 @@ import favoritesService from "../../Controllers/favoritesService"
 import Loading from "../Loading"
 import { useNavigate } from "react-router-dom"
 import { NavLink } from "react-router-dom"
+import { useContext } from "react"
+import UserContext from "../../context/UserContext"
+import FavoriteContext from "../../context/FavoriteContext"
 export function UserFavorite({ favorito }) {
-	
+	const {user} = useContext(UserContext)
+	const {propsFavorites,setPropsFavorites} = useContext(FavoriteContext)
 	const [alojamiento, setAlojamiento] = useState(null)
 	const [loading, setLoading] = useState(true)
-	const navigate = useNavigate()
+	
 	useEffect(()=>{
 		propertyService.getProperty(favorito.idp).then((response)=>{
 			setAlojamiento(response)
@@ -18,10 +22,19 @@ export function UserFavorite({ favorito }) {
 		setLoading(false)
 	},[])
 
-	const handleDelete = ()=>{
+	const handleDelete = async ()=>{
 		setLoading(true)
+		try {
+			
 		favoritesService.deleteFavorite(favorito.idu, favorito.idp)
-		.catch((erro) => console.error(erro)).finally(setLoading(false))
+		} catch (error) {
+			console.error(error)
+		}
+		finally{
+			favoritesService.getAllFavoritesByUser(user.id).then((response)=> setPropsFavorites(response))
+			setLoading(false)
+		}
+			
 	}
 	
 	return (

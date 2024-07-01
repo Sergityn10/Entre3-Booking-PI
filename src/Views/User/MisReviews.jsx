@@ -17,9 +17,9 @@ export function MisReviews(){
             
         }).finally(setLoading(false))
         
-        setLoading(false)
         
-    },[])
+        
+    },[user.id, setReviews])
 
     return (
         <main>

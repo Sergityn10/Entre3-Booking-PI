@@ -5,8 +5,9 @@ import propertyService from "../../Controllers/propertyService"
 import userService from "../../Controllers/UserService"
 import { NavLink } from "react-router-dom"
 import reviewService from "../../Controllers/reviewController"
-
+import ReviewContext from "../../context/ReviewContext"
 export function CardMiReview ({review}){
+    const{reviews, setReviews} = useContext(ReviewContext)
     const {user} = useContext(UserContext);
     const[property,setProperty] = useState(null)
     const[userReview, setUserReview] =useState(null)
@@ -34,11 +35,15 @@ export function CardMiReview ({review}){
     const handleDeleteReview = ()=>{
         try {
             reviewService.deleteReview(review.idp, review.idu).then((response)=>{
-                console.log(response)
+                
                 })
                 } catch (error) {
                     console.error(error)
                     }
+                    finally{
+                        reviewService.getAllReviewsByUser(user.id).then((response)=> setReviews(response))
+                    }
+
             
 
     }

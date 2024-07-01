@@ -185,7 +185,7 @@ export function DetailProperty(){
             <section id="container-create-review">
                 <h3>Reviews de usuarios sobre este alojamiento</h3>
                 <ListReviews listReviews={reviews}/>
-                <ReviewForm alojamiento={alojamiento}/>
+                <ReviewForm alojamiento={alojamiento} setListReviews={setReviews} />
             </section>
            
         </div>

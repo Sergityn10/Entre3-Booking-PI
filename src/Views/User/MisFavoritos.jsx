@@ -15,7 +15,7 @@ export function MisFavoritos(){
         
             
             
-            setFavorites(response)
+            setPropsFavorites(response)
             
            
         })
@@ -32,7 +32,7 @@ export function MisFavoritos(){
                 </section>
         {loading ? <Loading/> :
         
-              <>{favorites.map((prop,index)=> <UserFavorite key={index} favorito={prop}/>)}</>  
+              <>{propsFavorites.map((prop,index)=> <UserFavorite key={index} favorito={prop}/>)}</>  
 
             
         }

@@ -1,7 +1,7 @@
 import { CardReview } from "./CardReview"
 
 export function ListReviews({listReviews}){
-
+    
     return (
         <>
             
