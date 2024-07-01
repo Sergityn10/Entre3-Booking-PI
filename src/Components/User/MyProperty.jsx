@@ -1,15 +1,7 @@
 import { NavLink } from "react-router-dom";
 import propertyService from "../../Controllers/propertyService";
-export function MyProperty({ alojamiento }) {
-	const changeAvailable = ()=>{
-		var newAlojamiento ={...alojamiento}
-		if(alojamiento.available ===1 )
-		newAlojamiento.available = 0
-		else newAlojamiento.available = 1
-		propertyService.updateProperty(newAlojamiento)
-		
-		window.reload()
-	}
+export function MyProperty({ alojamiento,changeAvailable }) {
+	
     return (
 		<>
 			<section className="lugar-reserva">
@@ -30,7 +22,7 @@ export function MyProperty({ alojamiento }) {
 					</section>
 
 					<div className="precio-con-menu">
-					<button onClick={changeAvailable} >Cambiar disponibilidad</button>
+					<button onClick={()=>changeAvailable(alojamiento)} >Cambiar disponibilidad</button>
 						<NavLink to={`/habitaciones-alojamiento/${alojamiento.id}`} className="boton-bg-azul">
 							Ver habitaciones
 						</NavLink>

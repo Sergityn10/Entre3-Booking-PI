@@ -28,7 +28,7 @@ export function MisAlojamientos() {
 				<NavLink to="/create-property/">Añadir nueva propiedad</NavLink>
 			</section>
 
-			<ListOwnProperties listOwnProperties={listaPropiedades} />
+			<ListOwnProperties listOwnProperties={listaPropiedades} setListaPropiedades={setListaPropiedades}/>
 		</div>
 	);
 }
