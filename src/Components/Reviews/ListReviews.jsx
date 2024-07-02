@@ -8,7 +8,7 @@ export function ListReviews({listReviews}){
             {listReviews.map((review) => 
             
                 
-                <CardReview review={review} key={review.idp}/>
+                <CardReview review={review} key={review.idu}/>
              )}
         </>
     )

@@ -33,13 +33,25 @@ export function DetailProperty(){
             setAccommodations(response)
             console.log(response)
         })
-        reviewService.getAllReviewsByUser(user.id).then((response)=>{
-            setReviews(response)
+        // reviewService.getAllReviewsByUser(user.id).then((response)=>{
+        //     setReviews(response)
             
-        }).finally(setLoading(false))
+        // }).finally(setLoading(false))
         setBooks([])
         setTimeout(()=>setLoading(false),2000 )     
     }, [idProperty])
+
+    const reloadListReviews = ()=>{
+        setLoading(true)
+        setTimeout(()=>{
+            reviewService.getAllREviewsByIdp(idProperty).then((response)=>{
+            setReviews(response)
+            })
+            setLoading(false)
+        },2000)
+         
+        
+    }
 
     return(
         <>
@@ -189,7 +201,7 @@ export function DetailProperty(){
             <section id="container-create-review">
                 <h3>Reviews de usuarios sobre este alojamiento</h3>
                 <ListReviews listReviews={reviews}/>
-                <ReviewForm alojamiento={alojamiento} setListReviews={setReviews} />
+                <ReviewForm alojamiento={alojamiento} reloadListReviews={reloadListReviews}/>
             </section>
            
         </div>

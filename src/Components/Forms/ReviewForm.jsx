@@ -3,14 +3,16 @@ import reviewService from "../../Controllers/reviewController"
 import UserContext from "../../context/UserContext"
 import { useContext } from "react"
 import Loading from "../Loading"
-export function ReviewForm({alojamiento, setListReviews}){
+import { useNavigate } from "react-router-dom"
+export function ReviewForm({alojamiento, reloadListReviews}){
     const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
+    const navigate = useNavigate()
     const [review, setReview] = useState({})
     const [rating, setRating] = useState(0)
     const [comment, setComment] = useState('')
     const [errors, setErrors] = useState()
     const [loading, setLoading] = useState(true)
-    const handleReview= (event)=>{
+    const handleReview= async (event)=>{
         
         setLoading(true)
         let newReview ={
@@ -20,9 +22,9 @@ export function ReviewForm({alojamiento, setListReviews}){
             "grade": rating
         }
         setReview(newReview)
-        console.log(newReview)
+        //console.log(newReview)
 
-        reviewService.getReviewById(alojamiento.id,user.id).then((response)=>{
+        await reviewService.getReviewById(alojamiento.id,user.id).then((response)=>{
             if(response != ""){
                 reviewService.updateReview(newReview, user.id).catch((err) => setErrors(err))
                 
@@ -33,12 +35,14 @@ export function ReviewForm({alojamiento, setListReviews}){
             
         })
         .catch((err) => setErrors(err))
-        .finally(()=>{
+        // .finally(()=>{
 
-            reviewService.getAllREviewsByIdp(alojamiento.id).then((resp)=> setListReviews(resp))
-            setLoading(false) 
-            })
-        window.reload()
+        //     reviewService.getAllREviewsByIdp(alojamiento.id).then((resp)=> setListReviews(resp))
+        //     setLoading(false) 
+        //     })
+        setLoading(false)
+        reloadListReviews()
+       
     }
 
     useEffect(()=>{
