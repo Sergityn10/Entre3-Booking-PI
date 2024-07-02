@@ -42,49 +42,49 @@ export const CrearAlojamiento = () => {
 	};
 
 	return (
-		<form id="formulario-registro" action="" method="post">
+		<form id="formulario-registro" action="" method="post" onSubmit={createProperty}>
 			<h1>Crear Alojamiento</h1>
 
 			<label htmlFor="nombre">
 				<span>Nombre del Alojamiento</span>
 			</label>
 			<br />
-			<input type="text" id="nombre" name="nombre" />
+			<input type="text" id="nombre" name="nombre" required/>
 			<br />
 
 			<label htmlFor="ciudad">
 				<span>Ciudad</span>
 			</label>
 			<br />
-			<input type="text" id="ciudad" name="ciudad" />
+			<input type="text" id="ciudad" name="ciudad" required/>
 			<br />
 
 			<label htmlFor="direccion">
 				<span>Dirección</span>
 			</label>
 			<br />
-			<input type="text" id="direccion" name="direccion" />
+			<input type="text" id="direccion" name="direccion" required/>
 			<br />
 
 			<label htmlFor="telefono">
 				<span>Teléfono</span>
 			</label>
 			<br />
-			<input type="tel" id="telefono" name="telefono" />
+			<input type="tel" id="telefono" name="telefono" required/>
 			<br />
 
 			<label htmlFor="distancia">
 				<span>Distancia al centro (metros)</span>
 			</label>
 			<br />
-			<input type="number" id="distancia" name="distancia" />
+			<input type="number" id="distancia" name="distancia" required/>
 			<br />
 
 			<label htmlFor="valoracion">
 				<span>Valoración media</span>
 			</label>
 			<br />
-			<input type="number" id="valoracion" name="valoracion" step="0.1" />
+			<input type="number" id="valoracion" name="valoracion" step="0.1" required/>
 			<br />
 
 			<label htmlFor="descripcion">
@@ -134,11 +134,11 @@ export const CrearAlojamiento = () => {
 
 			<div id="mascotas">
 				<span>¿Permite mascotas?</span>
-				<input type="radio" id="si" name="mascotas" value="si" />
+				<input type="radio" id="si" name="mascotas" value="si" required/>
 				<label htmlFor="si">
 					<span>SÍ</span>
 				</label>
-				<input type="radio" id="no" name="mascotas" value="no" />
+				<input type="radio" id="no" name="mascotas" value="no" required/>
 				<label htmlFor="no">
 					<span>NO</span>
 				</label>
@@ -153,7 +153,7 @@ export const CrearAlojamiento = () => {
 			<input
 				type="submit"
 				value="Crear Alojamiento"
-				onClick={createProperty}
+				
 			/>
 		</form>
 	);

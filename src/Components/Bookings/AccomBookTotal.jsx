@@ -10,7 +10,7 @@ export function AccomBookTotal({bookAccom}){
     },[])
     return(
         <>
-            {accom? <p>{accom.name}</p>:null}
+            {accom? <p>{accom.name} - {bookAccom.numAccommodations}</p>:null}
 
         </>
     )
