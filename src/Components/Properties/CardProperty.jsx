@@ -13,17 +13,20 @@ const [isFavorite, setIsFavorite] = useState(false)
 
     
     const handleFavorite =()=>{
+        if(isLoggedIn){
+            if(!isFavorite){
+                
+                favoritesService.addFavorite(user.id, alojamiento.id)
+                setIsFavorite(true)
         
-        if(!isFavorite){
-            
-            favoritesService.addFavorite(user.id, alojamiento.id)
-            setIsFavorite(true)
-       
-        }
-        else{
-           favoritesService.deleteFavorite(user.id, alojamiento.id)
-            setIsFavorite(false)
-            
+            }
+            else{
+            favoritesService.deleteFavorite(user.id, alojamiento.id)
+                setIsFavorite(false)
+                
+            }
+        }else{
+            window.alert("Debes iniciar sesión para poder añadir favoritos")
         }
         
     }

@@ -4,10 +4,12 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import UserContext from '../context/UserContext';
+import FavoriteContext from '../context/FavoriteContext';
 
 export default function Header(){
     const navigate = useNavigate()
     const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
+    const {propsFavorites, setPropsFavorites} = useContext(FavoriteContext)
     useEffect(()=>{
         const localUser = window.localStorage.getItem("LocalUser")
         if(localUser){
@@ -20,6 +22,7 @@ export default function Header(){
     const handleLogout = ()=>{
         window.localStorage.removeItem("LocalUser")
         setUser(null)
+        setPropsFavorites([])
         setIsLoggedIn(false)
     navigate("/")
     }

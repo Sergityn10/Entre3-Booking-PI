@@ -203,7 +203,8 @@ export function DetailProperty(){
             <section id="container-create-review">
                 <h3>Reviews de usuarios sobre este alojamiento</h3>
                 <ListReviews listReviews={reviews}/>
-                {isLoggedIn?? <ReviewForm alojamiento={alojamiento} reloadListReviews={reloadListReviews}/>}
+                {isLoggedIn? <ReviewForm alojamiento={alojamiento} reloadListReviews={reloadListReviews} /> : <h2> Para poder dejar una reseña, debes estar logueado</h2>}
+
                 
             </section>
            
