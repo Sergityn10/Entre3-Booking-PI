@@ -38,9 +38,18 @@ export function FormPaymentBooks ({user, books, totalPrice}){
               var idBook = resp[resp.length-1].id
               console.log(idBook)
               books.forEach((book)=>{
-                book.idb = idBook
-                book.numAccommodations = parseInt(book.numAccommodations)
-                bookingAccommodationsService.createBookingAccommodation(book)
+                if(parseInt(book.numAccommodations) !== 0){
+                  let bookingAccommodation ={
+                  idb: idBook,
+                  idacc: book.idacc,
+                  numAccommodations: parseInt(book.numAccommodations)
+                }
+
+                // book.idb = idBook
+                // book.numAccommodations = parseInt(book.numAccommodations)
+                bookingAccommodationsService.createBookingAccommodation(bookingAccommodation)
+                }
+                
               })
             })
           })
@@ -50,6 +59,7 @@ export function FormPaymentBooks ({user, books, totalPrice}){
           
         }
         navigate("/config/bookings")
+        
     }
     return(
         <form method="post" onSubmit={handleSubmitPayment}>

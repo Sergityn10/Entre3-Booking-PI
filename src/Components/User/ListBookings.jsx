@@ -6,7 +6,7 @@ import './../../css/style-reservas.css'
 export function ListBookings({listUserBookings}){
     return (
         <>
-            {listUserBookings.map( (booking, index) => <UserBooking key={index} booking={booking}/>)}
+            {listUserBookings.map( (booking, index) => <UserBooking key={booking.id} booking={booking}/>)}
         
         </>
 

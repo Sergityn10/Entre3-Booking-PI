@@ -11,7 +11,9 @@ export function UserBooking({ booking}) {
     useEffect(()=>{
         bookingAccommodationsService.getBookingAccommodationsByIdb(booking.id).then((response)=>{
             setAccommodations(response)
-            accommodationService.getAccommodationByIda(response.at(0).idacc).then((respuesta)=>{
+            var bookAccom = response[0]
+            console.log(bookAccom)
+            accommodationService.getAccommodationByIda(bookAccom.idacc).then((respuesta)=>{
                 propertyService.getProperty(respuesta.idp).then((resp)=>{
                     
                     setProperty(resp)
