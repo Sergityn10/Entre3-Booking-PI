@@ -10,9 +10,11 @@ import accommodationService from "../../Controllers/accommodationService"
 import { ReserveAccommodation } from "../../Components/Properties/ReserveAccommodation"
 import { useContext } from "react"
 import ShoppingCartContext from "../../context/ShoppingCartContext"
+import UserContext from "../../context/UserContext"
 export function DetailProperty(){
     const {idProperty} = useParams();
     const {books, setBooks} = useContext(ShoppingCartContext)
+    const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
     const [alojamiento,setProperty] = useState()
     const [reviews, setReviews] = useState([])
     const [accommodations, setAccommodations] = useState([])
@@ -201,7 +203,8 @@ export function DetailProperty(){
             <section id="container-create-review">
                 <h3>Reviews de usuarios sobre este alojamiento</h3>
                 <ListReviews listReviews={reviews}/>
-                <ReviewForm alojamiento={alojamiento} reloadListReviews={reloadListReviews}/>
+                {isLoggedIn?? <ReviewForm alojamiento={alojamiento} reloadListReviews={reloadListReviews}/>}
+                
             </section>
            
         </div>
