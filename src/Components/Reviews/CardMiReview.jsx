@@ -35,14 +35,14 @@ export function CardMiReview ({review}){
     const handleDeleteReview = ()=>{
         try {
             reviewService.deleteReview(review.idp, review.idu).then((response)=>{
-                
+                reviewService.getAllReviewsByUser(user.id).then((resp)=> setReviews(resp))
                 })
                 } catch (error) {
                     console.error(error)
                     }
-                    finally{
-                        reviewService.getAllReviewsByUser(user.id).then((response)=> setReviews(response))
-                    }
+                    // finally{
+                        
+                    // }
 
             
 

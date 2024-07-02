@@ -11,7 +11,7 @@ export function ListMisReviews({listReviews}){
 
     return (
         <>
-            {listReviews.map((review,index) => <CardMiReview review={review} key={index}/>)}
+            {listReviews.map((review,index) => <CardMiReview review={review} key={review.idp}/>)}
         </>
     )
 }
