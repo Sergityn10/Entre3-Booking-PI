@@ -50,7 +50,8 @@ export function UserFavorite({ favorito, index }) {
 				<section className="lugar-reserva">
 					<h3>{alojamiento.name}-{alojamiento.city}</h3>
 					<div className="box-carrito">
-						<img src="img/caceres.jpg" alt="imagen-sobre-lugar" />
+					
+						<img src={`${process.env.PUBLIC_URL}/img/Lugares/caceres.jpg`} alt="imagen-sobre-lugar" />
 						<section className="info-lugar-reserva">
 							<NavLink to={`/property/${alojamiento.id}`}><h5 className="nom-lugar-strong">{alojamiento.name}</h5></NavLink>
 
@@ -64,7 +65,7 @@ export function UserFavorite({ favorito, index }) {
 						<div className="precio-con-menu">
 
 							
-								<input className="menu" type="image" src="../../img/Iconos/delete.png" alt="" onClick={handleDelete}/>
+								<input className="menu" type="image" src={`${process.env.PUBLIC_URL}/img/Iconos/delete.png`} alt="" onClick={handleDelete}/>
 							
 
 						</div>

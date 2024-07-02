@@ -70,7 +70,7 @@ export function CardMiReview ({review}){
                     <section className="buttons">
                         <NavLink className="boton-bg-azul" to={`/property/${property.id}`}>Editar review</NavLink>
                         <button className="button-png">
-                            <img src="../../img/Iconos/delete.png" alt="Eliminar review" onClick={handleDeleteReview}/>
+                            <img src={`${process.env.PUBLIC_URL}/img/Iconos/delete.png`} alt="Eliminar review" onClick={handleDeleteReview}/>
                         </button>
                     </section>
                 

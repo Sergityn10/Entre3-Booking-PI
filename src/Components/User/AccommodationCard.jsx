@@ -6,7 +6,7 @@ export function AccommodationCard({ habitacion }) {
 			<div className="box-habitacion">
 				<img
 					className="imagen-habitacion"
-					src="/img/Alojamientos/hotelLujo.jpg"
+					src={`${process.env.PUBLIC_URL}/img/Alojamientos/hotelLujo.jpg`}
 					alt="img-habitacion"
 				/>
 				<section className="atributos">

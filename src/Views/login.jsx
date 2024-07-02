@@ -39,13 +39,13 @@ export function LogIn(){
 						<p>o usar una de estas opciones</p>
 						<div className="logos">
 							<div className="logo-wrapper">
-								<img src="img/Logos/facebook.png" alt="Facebook"/>
+								<img src={`${process.env.PUBLIC_URL}/img/Logos/facebook.png`} alt="Facebook"/>
 							</div>
 							<div className="logo-wrapper">
-								<img src="img/Logos/google.png" alt="Google"/>
+								<img src={`${process.env.PUBLIC_URL}/img/Logos/google.png`} alt="Google"/>
 							</div>
 							<div className="logo-wrapper">
-								<img src="img/Logos/apple.png" alt="Apple"/>
+								<img src={`${process.env.PUBLIC_URL}/img/Logos/apple.png`} alt="Apple"/>
 							</div>
 						</div>
 					</div>

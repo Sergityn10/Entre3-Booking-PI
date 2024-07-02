@@ -19,10 +19,7 @@ export function CardBookAccoms({index, book,shopCart, setBooks}){
         } finally{
             setTimeout(()=> setLoading(false),2000)
             
-        }
-
-        
-        
+        }   
     },[])
 
     const handleDeleteBook = ()=>{
@@ -45,7 +42,7 @@ export function CardBookAccoms({index, book,shopCart, setBooks}){
                    <section className="lugar-reserva">
                 <h3>{property.city}</h3>
                 <div className="box-carrito">
-                    <img src="/img/Lugares/caceres.jpg" alt="imagen-sobre-lugar" />
+                    <img src={`${process.env.PUBLIC_URL}/img/Lugares/caceres.jpg`} alt="imagen-sobre-lugar" />
 
                     <section className="info-lugar-reserva">
 
@@ -55,9 +52,7 @@ export function CardBookAccoms({index, book,shopCart, setBooks}){
                     </section>
 
                     <div className="precio-con-menu">
-                        
-                        
-                        <input className="menu" type="image" src="../../public/img/Iconos/delete.png" alt="" onClick={handleDeleteBook} />
+                        <input className="menu" type="image" src={`${process.env.PUBLIC_URL}/img/Iconos/delete.png`} alt="" onClick={handleDeleteBook} />
                     </div>
                 </div>
             </section>

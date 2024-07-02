@@ -8,7 +8,7 @@ export function MyProperty({ alojamiento,changeAvailable }) {
 				<h3>{alojamiento.city}</h3>
 				<div className="box-carrito">
 					<img
-						src="/img/Lugares/caceres.jpg"
+						src={`${process.env.PUBLIC_URL}/img/Lugares/caceres.jpg`}
 						alt="imagen-sobre-lugar"
 					/>
 
@@ -35,7 +35,7 @@ export function MyProperty({ alojamiento,changeAvailable }) {
 						<NavLink to={`/delete-property/${alojamiento.id}`}>
 							<img
 								alt="Eliminar propiedad registrada"
-								src="/img/Iconos/delete.png"
+								src={`${process.env.PUBLIC_URL}/img/Iconos/delete.png`}
 							/>
 						</NavLink>
 					</div>
