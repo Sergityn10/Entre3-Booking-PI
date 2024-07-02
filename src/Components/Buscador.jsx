@@ -4,19 +4,22 @@ import { useLocation, useParams } from "react-router-dom"
 import { constComunes } from "../Controllers/constantesComunes"
 import { useNavigate } from "react-router-dom"
 
-export function Buscador(){
-    const [nomAlojamiento, setNomAlojamiento] = useState("")
-    const [disponibilidad, setDisponibilidad] = useState("todos")
+export function Buscador({initialName='', initialDisponibility='todos'}){
+    const [nomAlojamiento, setNomAlojamiento] = useState(initialName)
+    const [disponibilidad, setDisponibilidad] = useState(initialDisponibility)
     const {search} = useLocation()
     const navigate = useNavigate()
     const handleSubmit = (event)=>{
+        event.preventDefault()
         console.log(window.location)
+        console.log(search)
         let paramsQuery = new URLSearchParams()
         //Añadimos a la query de la búsqueda los parametros
         paramsQuery.append("lugar-alojamiento", nomAlojamiento)
         paramsQuery.append("disponibilidad", disponibilidad)
         
         let href = createSearchURL("/search", paramsQuery.toString())
+        console.log(href)
         navigate(href)
     }
     
@@ -26,6 +29,7 @@ export function Buscador(){
 
     useEffect(() =>{
         let paramsQuery = new URLSearchParams(search)
+        //let paramsQuery = search
         let nomQuery = paramsQuery.get("lugar-alojamiento")
         let disponibilidadQuery = paramsQuery.get("disponibilidad")
         setDisponibilidad(disponibilidadQuery)
@@ -36,7 +40,7 @@ export function Buscador(){
     
     return(
         
-        <form method="get" onSubmit={handleSubmit}>
+        <form onSubmitCapture={handleSubmit}>
             <div className="container-estancias">
                 <div className="buscador">
                         <div className="item-busqueda">
@@ -61,7 +65,7 @@ export function Buscador(){
                         </div>
 
                         <div className="item-boton-buscar">
-                            <button className="boton-buscar" type="submit">Buscar</button>
+                            <button className="boton-buscar" type="submit" >Buscar</button>
                         </div>
                 </div>
 
