@@ -1,19 +1,22 @@
 import { NavLink } from "react-router-dom";
 import propertyService from "../../Controllers/propertyService";
+import styles from "./../../css/style-reservas.module.css"
 export function MyProperty({ alojamiento,changeAvailable }) {
 	
     return (
 		<>
-			<section className="lugar-reserva">
+			<section className={styles["lugar-reserva"]}>
 				<h3>{alojamiento.city}</h3>
-				<div className="box-carrito">
+					<div className={styles["box-carrito"]}>
+				
 					<img
 						src={`${process.env.PUBLIC_URL}/img/Lugares/caceres.jpg`}
 						alt="imagen-sobre-lugar"
 					/>
 
-					<section className="info-lugar-reserva">
-						<h5 className="nom-lugar-strong">{alojamiento.name}</h5>
+					<section className={styles["info-lugar-reserva"]}>
+
+						<h5 className={styles["nom-lugar-strong"]}>{alojamiento.name}</h5>
 						{alojamiento.available === 1 ? (
 							<p>DISPONIBLE</p>
 						) : (
@@ -21,8 +24,8 @@ export function MyProperty({ alojamiento,changeAvailable }) {
 						)}
 					</section>
 
-					<div className="precio-con-menu">
-					<button onClick={()=>changeAvailable(alojamiento)} >Cambiar disponibilidad</button>
+					<div className={styles["precio-con-menu"]}>
+					<button className="boton-bg-azul" onClick={()=>changeAvailable(alojamiento)} >Cambiar disponibilidad</button>
 						<NavLink to={`/habitaciones-alojamiento/${alojamiento.id}`} className="boton-bg-azul">
 							Ver habitaciones
 						</NavLink>

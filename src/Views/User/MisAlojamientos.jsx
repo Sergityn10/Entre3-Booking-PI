@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { ListOwnProperties } from "../../Components/User/ListOwnProperties";
 import "./../../css/listaAlojamientos.css"
+import styles from "./../../css/style-reservas.module.css"
 import propertyService from "../../Controllers/propertyService";
 
 export function MisAlojamientos() {
@@ -22,8 +23,8 @@ export function MisAlojamientos() {
 	//En este caso, cada vez que se renderice (solo una vez), así que no hay que poner nada
 
 	return (
-		<div className="container-config">
-			<section id="reservas">
+		<div className={styles["container-config"]}>
+			<section id={styles["reservas"]}>
 				<h2>Tus alojamientos registrados</h2>
 				<NavLink to="/create-property/">Añadir nueva propiedad</NavLink>
 			</section>

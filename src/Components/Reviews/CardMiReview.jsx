@@ -6,6 +6,7 @@ import userService from "../../Controllers/UserService"
 import { NavLink } from "react-router-dom"
 import reviewService from "../../Controllers/reviewController"
 import ReviewContext from "../../context/ReviewContext"
+import styles from "./../../css/style-reservas.module.css"
 export function CardMiReview ({review}){
     const{reviews, setReviews} = useContext(ReviewContext)
     const {user} = useContext(UserContext);
@@ -50,18 +51,18 @@ export function CardMiReview ({review}){
     
     return (
         <>
-            <section className="lugar-reserva">
+            <section className={styles["lugar-reserva"]}>
          
             {loading? <Loading/> :
 
             <>
                 <h3>{property.name}-{property.city}</h3>
-                <div className="box-carrito">
-                    <section className="info-lugar-reserva">
-                        <h5 className="nom-lugar-strong">Valoración: {review.grade}</h5>
+                <div className={styles["box-carrito"]}>
+                    <section className={styles["info-lugar-reserva"]}>
+                        <h5 className={styles["nom-lugar-strong"]}>Valoración: {review.grade}</h5>
                     </section>
 
-                    <section className="card">
+                    <section className={styles["card"]}>
                         <h5>Comentario:</h5>
                         <q>{review.review}</q>
                         
@@ -69,9 +70,8 @@ export function CardMiReview ({review}){
 
                     <section className="buttons">
                         <NavLink className="boton-bg-azul" to={`/property/${property.id}`}>Editar review</NavLink>
-                        <button className="button-png">
-                            <img src={`${process.env.PUBLIC_URL}/img/Iconos/delete.png`} alt="Eliminar review" onClick={handleDeleteReview}/>
-                        </button>
+                        <input className={styles["menu"]} type="image" src={`${process.env.PUBLIC_URL}/img/Iconos/delete.png`} alt="" onClick={handleDeleteReview}/>
+                        
                     </section>
                 
                 </div>

@@ -52,7 +52,6 @@ export default function Header(){
                             <>
                             
                                 <NavLink className="alojamiento seleccion" to="/config">¡Hola, {user.name}!</NavLink>
-                                <NavLink className="alojamiento seleccion" to="/shoppingCart">Mi carrito</NavLink>
                                 <NavLink to="/" className="alojamiento seleccion" onClick={handleLogout}>Cerrar sesión</NavLink>
                             </>
                         }

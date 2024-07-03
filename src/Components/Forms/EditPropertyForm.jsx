@@ -28,7 +28,7 @@ export function EditPropertyForm({ alojamiento }) {
 	};
 
 	return (
-		<form id="formulario-registro" action="" method="post">
+		<form class="formulario-alojamiento" action="" method="post">
 			<h1>Edición Alojamiento</h1>
 
 			<label htmlFor="nombre">

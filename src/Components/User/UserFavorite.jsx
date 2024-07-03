@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom"
 import { useContext } from "react"
 import UserContext from "../../context/UserContext"
 import FavoriteContext from "../../context/FavoriteContext"
-
+import styles from "./../../css/style-reservas.module.css"
 
 export function UserFavorite({ favorito, index }) {
 	
@@ -47,13 +47,14 @@ export function UserFavorite({ favorito, index }) {
 	return (
 		<>
 		{loading || !alojamiento? <Loading/> :
-				<section className="lugar-reserva">
+				<section className={styles["lugar-reserva"]}>
+
 					<h3>{alojamiento.name}-{alojamiento.city}</h3>
-					<div className="box-carrito">
+					<div className={styles["box-carrito"]}>
 					
 						<img src={`${process.env.PUBLIC_URL}/img/Lugares/caceres.jpg`} alt="imagen-sobre-lugar" />
-						<section className="info-lugar-reserva">
-							<NavLink to={`/property/${alojamiento.id}`}><h5 className="nom-lugar-strong">{alojamiento.name}</h5></NavLink>
+						<section className={styles["info-lugar-reserva"]}>
+							<NavLink to={`/property/${alojamiento.id}`}><h5 className={styles["nom-lugar-strong"]}>{alojamiento.name}</h5></NavLink>
 
 							{alojamiento.available === 1 ? (
 								<p>DISPONIBLE</p>
@@ -62,10 +63,10 @@ export function UserFavorite({ favorito, index }) {
 							)}
 						</section>
 
-						<div className="precio-con-menu">
+						<div className={styles["precio-con-menu"]}>
 
 							
-								<input className="menu" type="image" src={`${process.env.PUBLIC_URL}/img/Iconos/delete.png`} alt="" onClick={handleDelete}/>
+								<input className={styles["menu"]} type="image" src={`${process.env.PUBLIC_URL}/img/Iconos/delete.png`} alt="" onClick={handleDelete}/>
 							
 
 						</div>

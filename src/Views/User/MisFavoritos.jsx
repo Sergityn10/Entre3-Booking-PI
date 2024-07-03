@@ -5,6 +5,7 @@ import propertyService from "../../Controllers/propertyService"
 import { UserFavorite } from "../../Components/User/UserFavorite"
 import FavoriteContext from "../../context/FavoriteContext"
 import Loading from "../../Components/Loading"
+import styles from "./../../css/style-reservas.module.css"
 export function MisFavoritos(){
     const {user} = useContext(UserContext)
     const {propsFavorites,setPropsFavorites} = useContext(FavoriteContext)
@@ -26,8 +27,8 @@ export function MisFavoritos(){
     return (
         <>
         <main>
-            <div className="container-config">
-                <section id="reservas"> 
+            <div className={styles["container-config"]}>
+                <section id={styles["reservas"]}> 
                     <h2>Tus alojamientos guardados</h2>
                 </section>
         {loading ? <Loading/> :
