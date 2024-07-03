@@ -19,8 +19,7 @@ export function DetailProperty(){
     const [reviews, setReviews] = useState([])
     const [accommodations, setAccommodations] = useState([])
     const [loading, setLoading] = useState(true);
-
-    
+ 
     useEffect(() =>{
         
         propertyService.getProperty(idProperty).then((response) =>{
@@ -135,19 +134,17 @@ export function DetailProperty(){
 
                 </div>
                 <div id="grid-fotos">
-                    <img src="img/Alojamientos/hotel1.jpg" alt="Foto hotel"/>
-                    <img src="img/Alojamientos/hotel2.jpg" alt="Foto hotel"/>
-                    <img src="img/Alojamientos/hotel3.jpg" alt="Foto hotel"/>
+                    <img src={`${process.env.PUBLIC_URL}/img/Alojamientos/hotel1.jpg`} alt="Foto hotel"/>
+                    <img src={`${process.env.PUBLIC_URL}/img/Alojamientos/hotel2.jpg`} alt="Foto hotel"/>
+                    <img src={`${process.env.PUBLIC_URL}/img/Alojamientos/hotel3.jpg`} alt="Foto hotel"/>
+
                     <div id="carrusel-fotos">
-                        <img src="img/Alojamientos/hotel4.jpg" alt="Foto hotel"/>
-                        <img src="img/Alojamientos/hotel5.jpg" alt="Foto hotel"/>
-                        <img src="img/Alojamientos/hotel6.jpg" alt="Foto hotel"/>
-                        <img src="img/Alojamientos/hotel7.jpg" alt="Foto hotel"/>
-                        <img src="img/Alojamientos/hotel8.jpg" alt="Foto hotel"/>
-                        <img src="img/Alojamientos/hotel8.jpg" alt="Foto hotel"/>
+                        <img src={`${process.env.PUBLIC_URL}/img/Alojamientos/hotel4.jpg`} alt="Foto hotel"/>
+                        <img src={`${process.env.PUBLIC_URL}/img/Alojamientos/hotel5.jpg`} alt="Foto hotel"/>
+                        <img src={`${process.env.PUBLIC_URL}/img/Alojamientos/hotel6.jpg`} alt="Foto hotel"/>
+                        <img src={`${process.env.PUBLIC_URL}/img/Alojamientos/hotel7.jpg`} alt="Foto hotel"/>
+                        <img src={`${process.env.PUBLIC_URL}/img/Alojamientos/hotel8.jpg`} alt="Foto hotel"/>
                     </div>
-
-
                 </div>
 
             </div>

@@ -9,7 +9,7 @@ export function BoxUserPayment({user,styles}){
         <div className={styles["foto-perfil-usuario"]}>
           <img
             className="img-perfil"
-            src="img/Iconos/foto-perfil-usuario.svg"
+            src={`${process.env.PUBLIC_URL}/img/Iconos/foto-perfil-usuario.svg`}
             alt="foto-perfil"
           />{" "}
           {/*Foto usuario*/}
