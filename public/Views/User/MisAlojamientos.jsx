@@ -4,7 +4,7 @@ import UserContext from "../../context/UserContext";
 import { useContext } from "react";
 import { Link, NavLink } from 'react-router-dom';
 import { ListOwnProperties } from "../../Components/User/ListOwnProperties";
-import './../../css/style-reservas.css';
+//import './../../css/style-reservas.css';
 import propertyService from "../../Controllers/propertyService";
 
 export function MisAlojamientos() {

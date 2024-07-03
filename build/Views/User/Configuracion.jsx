@@ -7,7 +7,7 @@ import { Routes } from "react-router-dom";
 
 import { MisAlojamientos } from "./MisAlojamientos";
 
-import './../../css/style-perfil-usuario.css';
+//import './../../css/style-perfil-usuario.css';
 import { EditUser } from "../../Components/User/EditUser";
 import { SignInForm } from "../../Components/Forms/SignInForm";
 

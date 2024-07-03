@@ -1,4 +1,4 @@
-import './../css/registro.css'
+
 import { SignInForm } from '../Components/Forms/SignInForm'
 export function SignUp(){
 

@@ -1,13 +1,4 @@
-body {
-    background-color: white;
-    margin: 0px;
-    padding: 0px;
-    font-family: sans-serif;
-}
 
-p, h1, h2, span, label {
-    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
 
 h1 {
     font-size: 20px;
@@ -18,49 +9,35 @@ a {
     text-decoration: none; 
 }
 
-#header {
-    background-color: #003b95;
-    color: white;
+
+
+.main {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20%;
-}
-
-#header img{
-    height: 30px;
-    width: 30px;
-    margin: 5px;
-}
-
-#header svg {
-    fill: white;
-    height: 28px;
-    width: 28px;
-    margin: 5px;
-}
-
-#main {
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 48px;
     padding: 16px 16px 0;
 }
 
-#main h1{
+.main h1{
     margin-bottom: 20px;
 }
 
 label {
     padding: 0px 0px 4px;
 }
-
-#formulario-registro span {
+.formulario_registro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.formulario_registro span {
     font-size: 14px;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="submit"], input[type="number"] {
+.formulario_registro input[type="text"],.formulario_registro input[type="email"],.formulario_registro input[type="password"],.formulario_registro input[type="submit"],.formulario_registro input[type="number"] {
     width: 360px;
     height: 36px;
     padding: 4px 8px;
@@ -70,12 +47,12 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sub
     box-sizing: border-box;
 }
 
-input[type="email"] {
+.formulario_registro input[type="email"] {
     width: 360px;
     height: 36px;
 }
 
-input[type="submit"] {
+.formulario_registro input[type="submit"] {
     width: 360px;
     height: 48px;
     background-color: #006ce4;
@@ -84,11 +61,11 @@ input[type="submit"] {
     font-size: 16px;
 }
 
-input[type="submit"]:hover {
+.formulario_registro input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-#opciones p {
+.opciones p {
     text-align: center;
 }
 
@@ -123,26 +100,26 @@ input[type="submit"]:hover {
     border-top: 1px solid #f0f0f0; 
 }
 
-#crear-cuenta {
+.crear-cuenta {
     text-align: center;
     font-size: 14px;
 }
 
-#crear-cuenta a {
+.crear-cuenta a {
     text-decoration: underline;
 }
 
-#terminos,
-#derechos {
+.terminos,
+.derechos {
     text-align: center; 
     font-size: 11px; 
 }
 
-#derechos {
+.derechos {
     margin-top: 20px; 
 }
 
-#enlaces-inferiores {
+.enlaces-inferiores {
     display: flex;
     justify-content: space-between;
 }

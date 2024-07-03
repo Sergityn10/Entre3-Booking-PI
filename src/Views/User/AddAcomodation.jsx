@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import accommodationService from "../../Controllers/accommodationService";
-import "./../../css/editarAlojamiento.css";
+
 import { useNavigate, useParams } from "react-router-dom";
 
 export const AddAcomodation = () => {
@@ -31,9 +31,9 @@ export const AddAcomodation = () => {
 	};
 
 	return (
-		<div id="main">
+		<div id="mainFormAlojamiento">
 			<div id="contenedor-central">
-				<form id="formulario-registro" onSubmit={createAccommodation}>
+				<form className="formulario-alojamiento" onSubmit={createAccommodation}>
 					<h1>Agregar Habitación</h1>
 
 					<label htmlFor="name">

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-export function BoxNoSignInUserPayment(){
+export function BoxNoSignInUserPayment({styles}){
     return(
         <>
             <div className="box-carrito box-usuario">

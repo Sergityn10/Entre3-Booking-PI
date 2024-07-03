@@ -4,6 +4,7 @@ import { ListProperty } from "../Components/Properties/listProperty"
 import propertyService from "../Controllers/propertyService"
 import { useLocation, useParams } from "react-router-dom"
 import FavoriteContext from "../context/FavoriteContext"
+import "./../css/listaAlojamientos.css"
 export function PagBusqueda(){
     const [properties,setProperties] = useState([])
     const {propsFavorites, setPropsFavorites}= useContext(FavoriteContext)
@@ -22,8 +23,8 @@ export function PagBusqueda(){
     },[search])
     return(
         <>
-        <Buscador/>
         <main>
+        <Buscador/>
             
             <ListProperty listProperties={properties} listFavorites={propsFavorites} setFavorites={setPropsFavorites}/>
         </main>

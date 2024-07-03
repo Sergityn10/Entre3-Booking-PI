@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react';
-import "./../../css/login.css"
+import styles from "./../../css/login.module.css"
 import userService from '../../Controllers/UserService';
 import UserContext from '../../context/UserContext';
 import { json, redirect, useNavigate } from 'react-router-dom';
 
-export function LogInForm(){
+export function LogInForm({}){
 	const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -63,30 +63,30 @@ export function LogInForm(){
 	}
 
     return (
-		<form id="formulario-inicio" onSubmit={handleLogIn} method="post">
-			<h1>Inicia sesión o crea una cuenta</h1>
-			
-			<p id="error-inicio">{error}</p>
-			
-			<label htmlFor="email"><span>E-mail</span></label> 
-			<input type="email" name="email" 
-				onChange={(e) => setEmail(e.target.value)} 
-				placeholder="Indica tu dirección de email" 
-				value={email}
-				required/>
-			
+        <form className={styles['formulario_inicio']} onSubmit={handleLogIn} method="post">
+            <h1>Inicia sesión o crea una cuenta</h1>
+            
+            {error && <p id="error_inicio">{error}</p>}
+            
+            <label htmlFor="email"><span>E-mail</span></label> 
+            <input type="email" name="email" 
+                onChange={(e) => setEmail(e.target.value)} 
+                placeholder="Indica tu dirección de email" 
+                value={email}
+                required/>
+            
 
-			<label htmlFor="password"><span>Contraseña</span></label> 
-			<input
-				type="password" name="password"
-				placeholder="Introduce tu contraseña" 
-				onChange={(e) => setPassword(e.target.value)}
-				value={password}
-				required/>
+            <label htmlFor="password"><span>Contraseña</span></label> 
+            <input
+                type="password" name="password"
+                placeholder="Introduce tu contraseña" 
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required/>
 
-			<p>
-				<input type="submit"  value="Continuar con e-mail"/>
-			</p>
-		</form>		
-    )
+            <p>
+                <input type="submit" value="Continuar con e-mail" />
+            </p>
+        </form>		
+    );
 }

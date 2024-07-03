@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import propertyService from "../../Controllers/propertyService";
-import "./../../css/editarAlojamiento.css";
+// import "./../../css/editarAlojamiento.css";
 
 export function EliminarAlojamiento() {
 	const { idProperty } = useParams();

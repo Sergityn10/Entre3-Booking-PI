@@ -1,7 +1,7 @@
 import { useState } from "react"
 import React from "react"
 import { MyProperty } from "./MyProperty"
-import './../../css/style-reservas.css'
+// import './../../css/style-reservas.css'
 import propertyService from "../../Controllers/propertyService"
 export function ListOwnProperties({listOwnProperties, setListaPropiedades}){
    

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import React from "react"
 import { CardProperty } from "./CardProperty"
 import favoritesService from "../../Controllers/favoritesService"
-import './../../css/listaAlojamientos.css'
+// import './../../css/listaAlojamientos.css'
 import UserContext from "../../context/UserContext"
 import { useContext } from "react"
 import FavoriteContext from "../../context/FavoriteContext"

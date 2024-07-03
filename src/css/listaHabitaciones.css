@@ -1,13 +1,5 @@
-@import "header.css";
-@import "buscador.css";
 
-*{
-    box-sizing: border-box;
-}
 
-body{
-    margin: 0;
-}
 
 h2{
     width: 50%;

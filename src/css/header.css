@@ -1,15 +1,23 @@
-@import "colors.css";
+
 
 header{
     width: 100%;
     background-color: var(--color-principal);
     margin:0;
     padding: 0;
+    padding-bottom: 10px;
 }
 
-body{
-	margin:0;
+
+.container-header {
+    
 }
+
+.container-header h1 {
+    margin-top: 19px;
+    margin-bottom: 19px;
+}
+
 
 .container-header{
     color:white;
@@ -19,7 +27,7 @@ p, h1, h2, h3, h4, span, label, li, a, button {
     font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-main,header>*{
+header>*{
     max-width: 1100px;
     margin: 0px auto;
     

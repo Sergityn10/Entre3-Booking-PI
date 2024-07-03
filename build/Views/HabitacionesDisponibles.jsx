@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import propertyService from "../Controllers/propertyService"
 import accommodationService from "../Controllers/accommodationService"
-import "./../css/defensa.css"
+
 export function HabitacionesDisponibles(){
     const [loading, setLoading] = useState(true)
     const [habitaciones, setHabitaciones] = useState(0)

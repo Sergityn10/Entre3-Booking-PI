@@ -1,7 +1,7 @@
 import React from "react";
 
 import { AccommodationCard } from "./AccommodationCard";
-import "./../../css/style-reservas.css";
+// import "./../../css/style-reservas.css";
 
 export function ListAccommodations({ listPropertyAccomodations }) {
 	console.log(listPropertyAccomodations);

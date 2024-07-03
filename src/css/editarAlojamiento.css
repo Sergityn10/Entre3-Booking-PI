@@ -1,14 +1,6 @@
-@import "header.css";
-body {
-    background-color: white;
-    margin: 0px;
-    padding: 0px;
-    font-family: sans-serif;
-}
 
-p, h1, h2, span, label {
-    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
+
+
 
 h1 {
     font-size: 24px;
@@ -19,29 +11,8 @@ a {
     text-decoration: none; 
 }
 
-#header {
-    background-color: #003b95;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20%;
-}
 
-#header img{
-    height: 30px;
-    width: 30px;
-    margin: 5px;
-}
-
-#header svg {
-    fill: white;
-    height: 28px;
-    width: 28px;
-    margin: 5px;
-}
-
-#main {
+#mainFormAlojamiento {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -60,7 +31,7 @@ a {
     margin-top: 0;
 }
 
-#formulario-registro {
+.formulario-alojamiento {
     display: flex;
     flex-direction: column;
 }
@@ -78,7 +49,7 @@ span {
     font-size: 14px;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="number"], input[type="submit"], textarea  {
+.formulario-alojamiento input[type="text"],.formulario-alojamiento input[type="email"],.formulario-alojamiento input[type="password"],.formulario-alojamiento input[type="tel"],.formulario-alojamiento input[type="number"],.formulario-alojamiento input[type="submit"],.formulario-alojamiento textarea  {
     width: 100%;
     height: 36px;
     padding: 4px 8px;

@@ -1,81 +1,60 @@
-import { useContext } from 'react';
-import './../css/login.css'
+import { useContext, useState } from 'react';
+import styles from './../css/login.module.css';
 import userService from '../Controllers/UserService';
 import UserContext from '../context/UserContext';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { LogInForm } from '../Components/Forms/LogInForm';
-export function LogIn(){
-    const mensajeError = "Error al iniciar sesión";
-	const context = useContext(UserContext)
-	
-    // const handleLogIn = (form)=>{
-		// let log = {
-		// 	id: 1,
-		// 	email: form.target.email.value,
-		// 	password: form.target.password.value,
-		// 	name: "",
-		// 	surname: ""
-        //     }
-	// 	userService.logIn(log).then(res =>setUser(log)
-	// 		)
-				
-					
 
-        
-        
-    //     myClick()
-	// 	redirect("/")
-    // }
+export function LogIn() {
+    const { setUser, setIsLoggedIn } = useContext(UserContext);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
+    
 
-	
-    return(
-		<>
-			<div id="main">
-				<div id="contenedor-central">
-					<LogInForm/>
+    return (
+        <>
+            <div className={styles.main}>
+               
+                    <LogInForm />
+                    {error && <p className={styles.error}>{error}</p>}
+                    <div id={styles.opciones}>
+                        <p>o usar una de estas opciones</p>
+                        <div className={styles.logos}>
+                            <div className={styles['logo_wrapper']}>
+                                <img src={`${process.env.PUBLIC_URL}/img/Logos/facebook.png`} alt="Facebook" />
+                            </div>
+                            <div className={styles['logo_wrapper']}>
+                                <img src={`${process.env.PUBLIC_URL}/img/Logos/google.png`} alt="Google" />
+                            </div>
+                            <div className={styles['logo_wrapper']}>
+                                <img src={`${process.env.PUBLIC_URL}/img/Logos/apple.png`} alt="Apple" />
+                            </div>
+                        </div>
+                    </div>
 
-					<div id="opciones">
-						<p>o usar una de estas opciones</p>
-						<div className="logos">
-							<div className="logo-wrapper">
-								<img src={`${process.env.PUBLIC_URL}/img/Logos/facebook.png`} alt="Facebook"/>
-							</div>
-							<div className="logo-wrapper">
-								<img src={`${process.env.PUBLIC_URL}/img/Logos/google.png`} alt="Google"/>
-							</div>
-							<div className="logo-wrapper">
-								<img src={`${process.env.PUBLIC_URL}/img/Logos/apple.png`} alt="Apple"/>
-							</div>
-						</div>
-					</div>
+                    <hr className={styles.separator} />
 
-					<hr className="separator"/>
+                    <p id={styles['crear_cuenta']}>
+                        ¿Eres nuevo en Booking? <a href="/signup">Crear cuenta</a>
+                    </p>
 
-					<p id="crear-cuenta">
-						¿Eres nuevo en Booking? <a href="/signup">Crear cuenta</a>
-					</p>
+                    <hr className={styles.separator} />
 
-					<hr className="separator"/>
+                    <p id={styles['terminos']}>
+                        Al iniciar sesión o al crear una cuenta, aceptas nuestros <a href="">Términos
+                            y <br />condiciones
+                        </a> y la <a href="">Política de privacidad</a>
+                    </p>
 
-					<p id="terminos">
-						Al iniciar sesión o al crear una cuenta, aceptas nuestros <a href="">Términos
-							y <br/>condiciones
-						</a> y la <a href="">Política de privacidad</a>
-					</p>
+                    <hr className={styles.separator} />
 
-					<hr className="separator"/>
-
-					<p id="derechos">
-						Todos los derechos reservados. <br/> Copyright (2006 - 2024) -
-						Booking.com
-					</p>
-
-				</div>
-
-			</div> 
-		</>
-
-
-    )
+                    <p id={styles['derechos']}>
+                        Todos los derechos reservados. <br /> Copyright (2006 - 2024) -
+                        Booking.com
+                    </p>
+                
+            </div>
+        </>
+    );
 }

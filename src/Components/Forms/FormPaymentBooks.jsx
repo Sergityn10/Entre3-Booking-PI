@@ -3,7 +3,9 @@ import accommodationService from "../../Controllers/accommodationService"
 import bookingService from "../../Controllers/bookinService"
 import bookingAccommodationsService from "../../Controllers/bookingAccommodationService"
 import { useNavigate } from "react-router-dom"
-export function FormPaymentBooks ({user, books, totalPrice}){
+// import styles from "./../../css/style-carrito.module.css"
+import styles from "./../../css/style-carrito.module.css"
+export function FormPaymentBooks ({user, books, totalPrice,styles}){
     const [erro, setError] = useState(null)
     const navigate = useNavigate()
     const [nombre, setNombre] = useState(null)
@@ -63,11 +65,11 @@ export function FormPaymentBooks ({user, books, totalPrice}){
     }
     return(
         <form method="post" onSubmit={handleSubmitPayment}>
-        <section className="box-carrito datos-usuario-formulario">
+        <section className={[`${styles["box-carrito"]} ${styles["datos-usuario-formulario"]}`]}>
           <h3>Introduce tus datos</h3>
-          <div className="datos-personales">
+          <div className={styles["datos-personales"]}>
             <label htmlFor="Nombre">
-              Nombre <span className="asterisco-obligatorio">*</span>
+              Nombre <span className={styles["asterisco-obligatorio"]}>*</span>
             </label>
             <input
               className="input-datos-personales"
@@ -79,7 +81,7 @@ export function FormPaymentBooks ({user, books, totalPrice}){
               required
             />
             <label htmlFor="Apellidos">
-              Apellidos <span className="asterisco-obligatorio">*</span>
+              Apellidos <span className={styles["asterisco-obligatorio"]}>*</span>
             </label>
             <input
               className="input-datos-personales"
@@ -90,7 +92,7 @@ export function FormPaymentBooks ({user, books, totalPrice}){
               onChange={(e)=>setApellido(e.target.value)}
             />
             <label htmlFor="e-mail">
-              E-mail <span className="asterisco-obligatorio">*</span>
+              E-mail <span className={styles["asterisco-obligatorio"]}>*</span>
             </label>
             <input
               className="input-datos-personales"
@@ -101,10 +103,10 @@ export function FormPaymentBooks ({user, books, totalPrice}){
               onChange={(e)=>setEmail(e.target.value)}
             />
             <label htmlFor="pais">
-              País <span className="asterisco-obligatorio">*</span>
+              País <span className={styles["asterisco-obligatorio"]}>*</span>
             </label>{" "}
             {/* Se establecerá mediante la base de datos todos los paises disponibles*/}
-            <select className="input-datos-personales" name="pais" id="pais">
+            <select className={styles["input-datos-personales"]} name="pais" id="pais">
               <option value="España">España</option>
               <option value="Estados Unidos">Estados Unidos</option>
               <option value="Francia">Francia</option>
@@ -113,15 +115,16 @@ export function FormPaymentBooks ({user, books, totalPrice}){
               Teléfono móvil <span className="asterisco-obligatorio">*</span>
             </label>
             <input
-              className="input-datos-personales"
+              className={styles["input-datos-personales"]}
               type="tel"
               name="telefono"
               id="telefono"
               value={telefono}
               onChange={(e)=>setTelefono(e.target.value)}
             />
-            <label htmlFor="creditCard">Credit Card <span className="asterisco-obligatorio">*</span></label>
+            <label htmlFor="creditCard">Credit Card <span className={styles["asterisco-obligatorio"]}>*</span></label>
             <input type="text"
+            className={styles["input-datos-personales"]}
              name="creditCard"
               id="creditCard" 
               pattern="[0-9]{16}"
@@ -145,7 +148,7 @@ export function FormPaymentBooks ({user, books, totalPrice}){
               </small>
             </p>
           </div>
-          <section className="para-quien-reserva">
+          <section className={styles["para-quien-reserva"]}>
             <h4>Para quien es esta reserva?</h4>
             <input
               type="radio"
@@ -160,7 +163,7 @@ export function FormPaymentBooks ({user, books, totalPrice}){
             />
             La reserva es para otra persona
           </section>
-          <section className="viajar-por-trabajo">
+          <section className={styles["viajar-por-trabajo"]}>
             <h4>¿Viajas por trabajo?</h4>
             <input type="radio" name="vpt" id="si" defaultValue="Si" />
             <label htmlFor="si">Sí</label>
@@ -169,19 +172,9 @@ export function FormPaymentBooks ({user, books, totalPrice}){
             <br />
           </section>
         </section>
-        <section className="box-carrito">
-          <h2>Revisar normas de la casa</h2>
-          <ul className="lista-normas">
-            <li>No se puede fumar</li>
-            <li>No se pueden hacer fiestas/eventos</li>
-            <li>MÁS INFORMACIÓN</li>
-          </ul>
-          <p className="remark">
-            Al continuar, estás aceptando las normas de la casa
-          </p>
-        </section>
-        <div className="botones-carrito-siguiente">
-          <a className="box-carrito boton-bg-transparente" href="">
+       
+        <div className={styles["botones-carrito-siguiente"]}>
+          <a className={[`${styles["box-carrito"]} boton-bg-transparente`]} href="">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M.311 2.56v6.257a3.75 3.75 0 0 0 1.098 2.651l11.56 11.562a2.25 2.25 0 0 0 3.182 0l6.88-6.88a2.25 2.25 0 0 0 0-3.181L11.468 1.408A3.75 3.75 0 0 0 8.818.31H2.56a2.25 2.25 0 0 0-2.25 2.25zm1.5 0a.75.75 0 0 1 .75-.75h6.257a2.25 2.25 0 0 1 1.59.659l11.562 11.56a.75.75 0 0 1 0 1.06l-6.88 6.88a.75.75 0 0 1-1.06 0L2.47 10.409a2.25 2.25 0 0 1-.659-1.59V2.56zm5.25 3.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm1.5 0a2.25 2.25 0 1 0-4.5 0 2.25 2.25 0 0 0 4.5 0z" />

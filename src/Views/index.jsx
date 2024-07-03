@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 import UserContext from "../context/UserContext"
 import { NavLink } from "react-router-dom"
 import { useContext } from "react"
+import "./../css/style.css"
 export default function Index(){
     const {user, setUser,isLoggedIn,setIsLoggedIn} = useContext(UserContext)
    

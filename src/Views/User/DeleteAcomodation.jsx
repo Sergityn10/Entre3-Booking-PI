@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import accommodationService from "../../Controllers/accommodationService";
-import "./../../css/eliminarUsuario.css";
+// import "./../../css/eliminarUsuario.css";
 
 export function DeleteAcomodation() {
 	const { idAcomodation } = useParams();

@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
-import "./../../css/login.css"
+import styles from "./../../css/registro.module.css"
+// import "./../../css/login.css"
 import userService from '../../Controllers/UserService';
 import UserContext from '../../context/UserContext';
 import { redirect, useNavigate } from 'react-router-dom';
@@ -81,46 +82,47 @@ export function SignInForm() {
 		}
 	},[])
 	return (
-		<>
+        <>
+            <form className={styles.formulario_registro} method="post" onSubmit={handleLogIn}>
+                <h1>¡Únete a nosotros!</h1>
 
-			<form id="formulario-registro" method="post" onSubmit={handleLogIn}>
-				<h1>¡Únete a nosotros!</h1>
+                <label htmlFor="nombre"><span>Nombre</span></label><br />
+                <input
+                    type="text" name="nombre"
+                    placeholder="Ingresa tu nombre" required
+                    value={nombre} onChange={(e) => setNombre(e.target.value)} />
+                <br />
 
-				<label htmlFor="nombre"><span>Nombre</span></label><br /> 
-				<input
-					type="text" name="nombre" 
-					placeholder="Ingresa tu nombre" required 
-					value={nombre} onChange={(e)=> setNombre(e.target.value)}/>
-					<br />
+                <label htmlFor="apellidos"><span>Apellidos</span></label><br />
+                <input
+                    type="text" name="apellidos" placeholder="Ingresa tus apellidos"
+                    value={apellido} onChange={(e) => setApellido(e.target.value)}
+                    required />
+                <br />
+                <label htmlFor="email"><span>Correo electrónico</span></label><br />
+                <input
+                    type="email" name="email"
+                    placeholder="Ingresa tu correo electrónico" value={email}
+                    onChange={(e) => setEmail(e.target.value)} required /><br />
 
-				<label htmlFor="apellidos"><span>Apellidos</span></label><br /> 
-				<input
-					type="text" name="apellidos" placeholder="Ingresa tus apellidos"
-					value={apellido} onChange={(e)=> setApellido(e.target.value)}
-					required />
-				<br />
-				<label htmlFor="email"><span>Correo electrónico</span></label><br /> 
-				<input 
-					type="email" name="email" 
-					placeholder="Ingresa tu correo electrónico" value={email}
-					onChange={(e)=> setEmail(e.target.value)} required /><br />
-
-				<label htmlFor="password"><span>Contraseña</span></label><br />
-				<input
-					type="password" name="password"
-					placeholder="Introduce tu contraseña"
-					pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" 
-					title="La contraseña debe tener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial (@, $, !, %, *, ?, &), y debe tener una longitud mínima de 8 caracteres." 
-					value ={password} onChange={(e)=> setPassword(e.target.value)} required />
-					<br />
-				<p id="error-inicio">{myerror}</p>
-				<p>
-					
-					{isLoggedIn? <><input type="submit" value="Editar usuario" /> <input type="button" value="Eliminar cuenta" onClick={handleDelete} /></>:<input type="submit" value="Crear cuenta" />}
-					
-
-				</p>
-			</form>
-		</>
-	)
+                <label htmlFor="password"><span>Contraseña</span></label><br />
+                <input
+                    type="password" name="password"
+                    placeholder="Introduce tu contraseña"
+                    pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                    title="La contraseña debe tener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial (@, $, !, %, *, ?, &), y debe tener una longitud mínima de 8 caracteres."
+                    value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <br />
+                <p className={styles.error_inicio}>{myerror}</p>
+                <p>
+                    {isLoggedIn
+                        ? <>
+                            <input type="submit" value="Editar usuario" />
+                            <input type="button" value="Eliminar cuenta" onClick={handleDelete} />
+                          </>
+                        : <input type="submit" value="Crear cuenta" />}
+                </p>
+            </form>
+        </>
+    );
 }

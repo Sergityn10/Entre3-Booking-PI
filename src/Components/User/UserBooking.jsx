@@ -4,6 +4,7 @@ import bookingAccommodationsService from "../../Controllers/bookingAccommodation
 import accommodationService from "../../Controllers/accommodationService";
 import Loading from "../Loading";
 import { AccomBookTotal } from "../Bookings/AccomBookTotal";
+import styles from "./../../css/style-reservas.module.css";
 export function UserBooking({ booking}) {
     const [property, setProperty] = useState(null)
     const [accommodations, setAccommodations] = useState([])
@@ -21,28 +22,32 @@ export function UserBooking({ booking}) {
             })
         }).finally(()=> setTimeout(()=>setLoading(false),2000))
     },[booking.id])
-    return (
+   return (
         <>
-            {loading ? <Loading /> :
-            <section className="lugar-reserva">
-                <h3>{property.city}</h3>
-                <div className="box-carrito">
-                    <section className="info-lugar-reserva">
-                        <h5 className="nom-lugar-strong">{property.name}</h5>
-                    </section>
+            {loading ? (
+                <Loading />
+            ) : (
+                <section className={styles["lugar-reserva"]}>
+                    <h3>{property.city}</h3>
+                    <div className={styles["box-carrito"]}>
+                        <section className={styles["info-lugar-reserva"]}>
+                            <h5 className={styles["nom-lugar-strong"]}>{property.name}</h5>
+                        </section>
 
-                    <section className="card">
-                        <h4>Alojamientos:</h4>
-                        {accommodations.map((bookAccom)=><AccomBookTotal bookAccom={bookAccom} key={bookAccom.idacc}/>)}
-                    </section>
-                    
-                    <div className="precio-con-menu">
-                        <h4>Precio total:</h4>
-                        <p>{booking.totalPrice}</p>
+                        <section className={styles["card"]}>
+                            <h4>Alojamientos:</h4>
+                            {accommodations.map((bookAccom) => (
+                                <AccomBookTotal bookAccom={bookAccom} key={bookAccom.idacc} />
+                            ))}
+                        </section>
+
+                        <div className={styles["precio-con-menu"]}>
+                            <h4>Precio total:</h4>
+                            <p>{booking.totalPrice}</p>
+                        </div>
                     </div>
-                </div>
-            </section>
-        }
+                </section>
+            )}
         </>
     );
 }

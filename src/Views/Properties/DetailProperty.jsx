@@ -58,7 +58,7 @@ export function DetailProperty(){
     return(
         <>
         {loading ? <Loading/> : <>
-            <div id="main">
+            <div id="mainDetailProperty">
 
                 <div id="enlace-secciones">
                     <a href=""><span>Vista general</span></a>

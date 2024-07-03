@@ -1,20 +1,19 @@
-@import "colors.css";
 
-form{
+form.form_buscador {
     display: flex;
     width: 100%;
     max-width: 100%;
 }
 
-.container-estancias{
+.container_estancias {
     position: relative;
     width: 100%;
     min-height: 50px;
-    margin:0 auto;
+    margin: 0 auto;
     padding: 0;
 }
 
-.buscador{
+.buscador {
     position: relative;
     display: flex;
     justify-content: center;
@@ -25,56 +24,54 @@ form{
     background-color: #ffb700;
 }
 
-.item-busqueda{
+.item_busqueda {
     margin-right: 4px;
     align-items: center;
 }
 
-.item-busqueda, .item-boton-buscar{
+.item_busqueda, .item_boton_buscar {
     display: flex;
     border-radius: 5px;
     background-color: white;
-    color:black;
+    color: black;
     justify-content: center;
 }
 
-.item-busqueda:first-child{
-    flex:4;
+.item_busqueda:first-child {
+    flex: 4;
 }
 
-.item-busqueda:nth-child(2){
-   flex:2;
+.item_busqueda:nth-child(2) {
+    flex: 2;
 }
 
-.item-busqueda:nth-child(3){
-   flex:3;
+.item_busqueda:nth-child(3) {
+    flex: 3;
 }
 
-form .item-busqueda:last-child{
-   display:block;
+form .item_busqueda:last-child {
+    display: block;
 }
 
-.item-boton-buscar{
+.item_boton_buscar {
     display: flex;
-    flex:1;    
+    flex: 1;    
 }
 
-.item-busqueda input[type="text"]{
+.item_busqueda input[type="text"] {
     width: 80%;
-    
 }
 
-.item-busqueda input{
+.item_busqueda input {
     height: 50px;
     width: 80%;
-    border-style:none;
-    
+    border-style: none;
 }
 
-.boton-buscar {
+.boton_buscar {
     background-color: #006ce4;
-    border:none;
-    color:white;
+    border: none;
+    color: white;
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -84,46 +81,37 @@ form .item-busqueda:last-child{
 }
 
 .buscador svg {
-    fill:grey;
+    fill: grey;
     width: 24px;
     height: 24px;
     margin-right: 5px;
     margin-left: 10px;
 }
 
-#icono-persona svg{
-    fill:grey;
+#icono_persona svg {
+    fill: grey;
     width: 20px;
     height: 20px;
     margin-right: 5px;
     margin-left: 10px;
 }
 
-.buscador ::placeholder{
+.buscador ::placeholder {
     color: #1a1a1a;
 }
 
-button.boton-buscar:hover {
+button.boton_buscar:hover {
     background-color: #003c95cf;
 }
 
-section.filtros{
-	position: absolute;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	display: flex;
-	gap: 10px;
+section.filtros {
+    position: absolute;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
 }
 
-.filtros > *{
-	align-self:center;
+.filtros > * {
+    align-self: center;
 }
-
-
-
-
-
-
-
-
-

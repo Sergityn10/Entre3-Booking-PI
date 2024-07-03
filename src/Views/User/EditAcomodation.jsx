@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import accommodationService from "../../Controllers/accommodationService";
-import "./../../css/editarAlojamiento.css";
+// import "./../../css/editarAlojamiento.css";
 import { useNavigate } from "react-router-dom";
 
 export const EditAcomodation = () => {

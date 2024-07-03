@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import propertyService from "../../Controllers/propertyService";
 import { NavLink } from "react-router-dom";
-import "./../../css/editarAlojamiento.css";
+import "./../../css/editarAlojamiento.css"; 
 
 import { EditPropertyForm } from "../../Components/Forms/EditPropertyForm";
 import { CreateAccommodationForm } from "../../Components/Forms/CreateAccommodationForm";
@@ -25,7 +25,7 @@ export function EditarAlojamiento() {
 		return (
 			<>
 				{loading ? null : (
-					<div id="main">
+					<div id="mainFormAlojamiento">
 						<div id="contenedor-central">
 							<EditPropertyForm alojamiento={alojamiento} />
 						</div>

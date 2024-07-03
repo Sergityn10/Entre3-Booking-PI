@@ -5,7 +5,7 @@ import UserContext from "../../context/UserContext";
 import { useContext } from "react";
 import { Link, NavLink } from 'react-router-dom';
 import Loading from "../../Components/Loading";
-import './../../css/listaHabitaciones.css';
+//import './../../css/listaHabitaciones.css';
 import { useParams } from "react-router-dom";
 
 import {ListAccommodations} from "../../Components/User/ListAccommodations";

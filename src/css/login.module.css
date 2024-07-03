@@ -1,15 +1,3 @@
-@import "header.css";
-body {
-    background-color: white;
-    margin: 0px;
-    padding: 0px;
-    font-family: sans-serif;
-}
-
-p, h1, h2, span, label {
-    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
 h1 {
     font-size: 20px;
 }
@@ -19,7 +7,7 @@ a {
     text-decoration: none; 
 }
 
-#main {
+.main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,7 +16,7 @@ a {
     padding: 16px 16px 0;
 }
 
-#main h1{
+.main h1{
     margin-bottom: 20px;
 }
 
@@ -36,16 +24,18 @@ label {
     padding: 0px 0px 4px;
 }
 
-#formulario-inicio {
+.formulario_inicio {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-#formulario-inicio span {
+.formulario_inicio span {
     font-size: 14px;
 }
 
-input[type="email"], input[type="password"], input[type="submit"] {
+.formulario_inicio input[type="email"], .formulario_inicio input[type="password"], .formulario_inicio input[type="submit"] {
     width: 360px;
     height: 36px;
     padding: 4px 8px;
@@ -55,12 +45,12 @@ input[type="email"], input[type="password"], input[type="submit"] {
     box-sizing: border-box;
 }
 
-input[type="email"] {
+.formulario_inicio input[type="email"] {
     width: 360px;
     height: 36px;
 }
 
-input[type="submit"] {
+.formulario_inicio input[type="submit"] {
     width: 360px;
     height: 48px;
     background-color: #006ce4;
@@ -69,11 +59,11 @@ input[type="submit"] {
     font-size: 16px;
 }
 
-input[type="submit"]:hover {
+.formulario_inicio input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-#opciones p {
+.opciones p {
     text-align: center;
 }
 
@@ -82,7 +72,7 @@ input[type="submit"]:hover {
     justify-content: center;
 }
 
-.logo-wrapper {
+.logo_wrapper {
     display: inline-block;
     margin: 10px; 
     border: 2px solid #eee; 
@@ -91,7 +81,7 @@ input[type="submit"]:hover {
     padding: 15px;
 }
 
-.logo-wrapper:hover {
+.logo_wrapper:hover {
     border-color: #0056b3; 
     cursor: pointer;
 }
@@ -108,21 +98,21 @@ input[type="submit"]:hover {
     border-top: 1px solid #f0f0f0; 
 }
 
-#crear-cuenta {
+.crear_cuenta {
     text-align: center;
     font-size: 14px;
 }
 
-#crear-cuenta a {
+.crear_cuenta a {
     text-decoration: underline;
 }
 
-#terminos,
-#derechos {
+.terminos,
+.derechos {
     text-align: center; 
     font-size: 11px; 
 }
 
-#derechos {
+.derechos {
     margin-top: 20px; 
 }
